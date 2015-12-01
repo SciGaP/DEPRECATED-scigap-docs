@@ -1,0 +1,10 @@
+site_name: Airavata Operations Manual
+pages:
+- Home: index.md
+- Installations: Installation.md
+- User Profiles: User-Profiles.md
+- PGA Gateway: Gateway-Configurations.md
+- Applications: Application-Cookbook.md
+- Pending: Pending.md
+
+#theme: readthedocs
