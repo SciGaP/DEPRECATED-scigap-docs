@@ -5,7 +5,7 @@ pages:
 - Installations: Installation.md
 - User Profiles: User-Profiles.md
 - PGA Gateway: Gateway-Configurations.md
-- Applications: Application-Cookbook.md
+- Applications: Application-CookBook.md
 - Pending: Pending.md
 
 theme: readthedocs
