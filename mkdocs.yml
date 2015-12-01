@@ -8,4 +8,4 @@ pages:
 - Applications: Application-Cookbook.md
 - Pending: Pending.md
 
-#theme: readthedocs
+theme: readthedocs
