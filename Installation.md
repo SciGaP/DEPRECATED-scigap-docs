@@ -1,7 +1,7 @@
 ## Install Airavata and PGA
+[<button type="button" font-weight=bold color=#44444>AIRAVATA</button>](#Airavata)    [<button type="button" color='#333333'>Airavata Configuration</button>](#AiravataConfig) <br></br>[<button type="button" color='#333333'>PGA on MAC OS</button>](#headPGAMAC)   [<button type="button" color='#333333'>PGA on Cent OS</button>](#PGACentOS)   [<button type="button" color='#333333'>PGA on Ubuntu OS</button>](#PGAUbuntuOS)
 
-
-### Airavata Installation
+### <a name="Airavata"></a>Airavata Installation
 
 
 #### Prerequisites
@@ -19,14 +19,14 @@ tar -xvf rabbitmq-server-mac-standalone-3.4.1.tar.gz
 	http://maven.apache.org/download.cgi#Installation 
 
 
-#### Start Airavata
+#### Install Airavata
 1. Create a folder in your local machine to get  copy of Airavata (E.g.: mkdir LocalAiravata). 
 2. Clone the source (If you have not taken a clone prior) code from github (git clone https://github.com/apache/airavata.git) to the above created folder.
 3. After cloning is completed, build the source code by executing following maven command;
-	<pre><code>mvn clean install</code></pre>
+<pre><code>mvn clean install</code></pre>
 >  Hint: Use mvn clean install -Dmaven.test.skip=true to avoid tests and is recommended for first timers.
 
-OR
+	OR
 
 4. Copy the tar file to your local folder created above in step 1
 <pre><code>cp airavata/modules/distribution/server/target/apache-airavata-server-0.15-SNAPSHOT-bin.tar.gz ./</code></pre>
@@ -49,12 +49,20 @@ OR
 11. For subsequent Airavata copies; in the local Airavata folder where source code is cloned do a git clone https://github.com/apache/airavata.git for the latest trunk.
 
 
+#### <a name="AiravataConfig"></a>Configurations
+1. If you are using your own MySQL database go and put mysql.jar in to lib of Airavata. navigate to lib;
+<pre><code>cd /LocalFolderPath/apache-airavata-server-0.16-SNAPSHOT/lib</code></pre>
+2. Navigate to airavata-server.properties file in bin folder and change;
+	-  Under 'Monitoring Module Configuration'
+		- 
+		- See my [<button type="button" color='#333333'>Pre-Installations</button>](#head12345) page for details.   
+
+
 ### PGA Installation
 
 NOTE: PGA installation steps will differ depending on the operation system in the local machine/server where PGA will be located.
 
-
-#### Prerequisites
+#### <a name="head1234"></a>Prerequisites
 1. Requires a Unix or Unix like operating system
 2. Requires a web server (e.g apache web server) with PHP 5.4 or higher. Make sure have enabled mod_rewrite module in httpd.conf file and enable PHP SOAP extension
 3. Install Composer
@@ -68,8 +76,8 @@ NOTE: PGA installation steps will differ depending on the operation system in th
 8. Important: Do not need to install Laravel. You can skip the steps given on the links
 
 
-#### PGA  Installation on MAC Yosemite OS
-##### Pre-Installations
+#### <a name="headPGAMAC"></a>PGA  Installation on MAC Yosemite OS
+##### <a name="head12345"></a>Pre-Installations
 1. To install MCrypt for PHP on MAC please follow the steps in http://coolestguidesontheplanet.com/install-mcrypt-php-mac-osx-10-10-yosemite-development-server/.
 2. First check wether your MAC has Apache installed. To check availability;
 <pre><code>apache ctrl start</code></pre>
@@ -135,7 +143,96 @@ IMPORTANT: In places where the hosted PGA link is used please replace by your lo
 
 
 
-#### PGA  Installation on Linux/CentOS //http://tecadmin.net/install-java-8-on-centos-rhel-and-fedora/
+#### <a name="PGAUbuntuOS"></a>PGA  Installation on Ubuntu OS //http://tecadmin.net/install-java-8-on-centos-rhel-and-fedora/
+##### Pre-Installations
+1. To install dependencies use commands in https://vpsineu.com/blog/how-to-install-laravel-on-a-centos-7-vps/
+In the command avoid installing mysql and mariaDB
+2. Enable the appropriate extensions: navigate to php.ini
+	<pre><code>sudo vi /etc/php.ini</code></pre>
+	- Uncomment the following extensions: mcrypt.so, openssl.so, and soap.so. If they do not exists add them as extensions.
+	<pre><code>extension=mcrypt.so</code></pre>
+	<pre><code>extension=openssl.so</code></pre>
+	<pre><code>extension=soap.so</code></pre>
+	- Locate httpd.conf file 
+	<pre><code>sudo vi /etc/httpd/conf/httpd.conf</code></pre>
+	- Find 'AllowOverride None' and change to 'AllowOverride All' (Two places to change)
+	
+
+The following guide give a sample installation starting from a fresh Ubunutu 12.04 installation. Similar instructions should be used in other operating systems.
+Update the ubuntu package manager
+sudo apt-get update
+sudo apt-get upgrade 
+Install Apache 
+sudo apt-get install apache2
+Install PHP 5.4
+sudo apt-get install python-software-properties
+sudo add-apt-repository ppa:ondrej/php5-oldstable
+sudo apt-get update
+sudo apt-cache policy php5
+sudo apt-get install php5
+You can check the installed versions of apache and php using apache2 -v and php -v commands
+Install the necessary php extensions
+sudo apt-get install unzip
+sudo apt-get install curl
+sudo apt-get install openssl
+sudo apt-get install php5-mcrypt
+sudo apt-get install php-soap
+Install Composer System Wide
+curl -sS https://getcomposer.org/installer | php
+sudo mv composer.phar /usr/local/bin/composer
+Activate mod_rewrite
+sudo a2enmod rewrite
+sudo service apache2 restart
+Open the default vhost config file:
+ sudo nano /etc/apache2/sites-available/default. 
+ Now search for “AllowOverride None”  corresponding “DocumentRoot /var/www <Directory /var/www>” (which should be there TWO times) and change both to “AllowOverride All“. Search for these two lines.
+ Exit and save with CTRL+X, Y, ENTER.
+
+Installations
+ The following guide give a sample installation starting from a fresh Ubunutu 12.04 installation. Similar instructions should be used in other operating systems.
+Update the ubuntu package manager
+sudo apt-get update
+sudo apt-get upgrade 
+Install Apache 
+sudo apt-get install apache2
+Install PHP 5.4
+sudo apt-get install python-software-properties
+sudo add-apt-repository ppa:ondrej/php5-oldstable
+sudo apt-get update
+sudo apt-cache policy php5
+sudo apt-get install php5
+You can check the installed versions of apache and php using apache2 -v and php -v commands
+Install the necessary php extensions
+sudo apt-get install unzip
+sudo apt-get install curl
+sudo apt-get install openssl
+sudo apt-get install php5-mcrypt
+sudo apt-get install php-soap
+Install Composer System Wide
+curl -sS https://getcomposer.org/installer | php
+sudo mv composer.phar /usr/local/bin/composer
+Activate mod_rewrite
+sudo a2enmod rewrite
+sudo service apache2 restart
+Open the default vhost config file:
+ sudo nano /etc/apache2/sites-available/default. 
+ Now search for “AllowOverride None”  corresponding “DocumentRoot /var/www <Directory /var/www>” (which should be there TWO times) and change both to “AllowOverride All“. Search for these two lines.
+ Exit and save with CTRL+X, Y, ENTER.
+Download PGA from GIT
+Download PGA from github to the document root of you web server /var/www. 
+Use git clone https://github.com/apache/airavata-php-gateway.git or download the zip from the github web page.
+Go inside the PGA directory (e.g /var/www/airavata-php-gateway)
+Make sure the storage folder is writable
+sudo chmod -R 755 app/storage
+Go to [PGA_HOME]/app/config/pga_config.php and change the configuration to match your settings
+
+Now issue composer install command
+sudo composer install
+Restart the web server
+sudo service apache2 restart
+
+
+#### <a name="PGACentOS"></a>PGA  Installation on Linux/CentOS //http://tecadmin.net/install-java-8-on-centos-rhel-and-fedora/
 ##### Pre-Installations
 1. To install dependencies use commands in https://vpsineu.com/blog/how-to-install-laravel-on-a-centos-7-vps/
 In the command avoid installing mysql and mariaDB
@@ -171,9 +268,7 @@ Note: make sure to make the directory pointed to by 'experiment-data-root' in pg
 8. Update using Composer:
 <pre><code>sudo composer update</code></pre>
 
-
-
-###Common FAQs
+### FAQs
 1. When installing PGA in MAC i got below error after updating the composer.
 	- Error
 	Mcrypt PHP extension required.
