@@ -1,16 +1,22 @@
+NOTE: Based on who hosts Airavata and PGA, access level of gateway admin changes and who does what when it comes to configuration also changes.
+If both Airavata and
 # Airavata Components
 Super admin and Gateway admin can use gateway to register components, applications, preferences, etc...
 For this first lets look at gateway UI components and which to use for each task in hand.
 
-
-### Gateway Menu and Sub Menus
-![PGAMenu&SubMenu](img/PGAMenu&SubMenu.png)Image - Gateway Menu and Sub Menus
-
-
 # Airavata Configurations and Set-up
-Once Airavata and PGA is cloned and installed gateway configurations will be done by both Super admin and Gateway admin.
+Once Airavata and PGA is cloned and installed gateway configurations will be done at both Super admin and Gateway admin.
+
+### When User Host both Airavata & PGA
+If the user hosts both Airavata and PGA;
+1. They need to have their own configuration of WSO2 IS to do usr account management.
+Please follow configuration steps in <link> for IS installation and configuration.
 
 
+
+
+
+## When SciGaP Host both Airavata and PGA
 ### Super Admin Configurations Tasks
 ####Create & Configure the Gateway in Airavata
 1. Super admin has to create the gateway in Airavata. If user is using hosted Super this would be done by Super admin. If the user downloads and hosts Airavata privately then Super admin role will be played by the user as well.
@@ -19,7 +25,7 @@ Once Airavata and PGA is cloned and installed gateway configurations will be don
 
 #### WSO2 IS Configuration
 1. Setting up WSO2 IS for the new gateway.
-2. Once PGA is cloned all information related to user identity will be in app/config/pga_config.php. No modifications required for users who are using Super and and hosted IS.
+2. Once PGA is cloned all information related to user identity will be in app/config/pga_config.php. No modifications required for users who are using 	hosted IS.
 3. For user identity management we could either use Airavata WSO2 IS or users own WSO2 IS.
 4. Download WSO2 Identity Server 5.0 from http://product-dist.wso2.com/products/identity-server/5.0.0/wso2is-5.0.0.zip
 5. Extract the downloaded IS binary archive to a location <IS_HOME>.
