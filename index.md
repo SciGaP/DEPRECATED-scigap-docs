@@ -6,17 +6,23 @@
 - Traditional scientific applications provide a portal for users to submit and manage scientific applications which is called as science gateways.
 - Airavata can be used by scientific gateway developers as their middleware layer. They can directly call Airavata API in order to communicate with grid based system.
 
+For more information on Airavata visit; <a href="http://airavata.apache.org/" target="_blank">Apache Airavata</a>
+<br>
+<br>
 # How do you want to use Airavata?
-
 Two options; </br>
 1. Gateway hosted by SciGaP<br>
-    - Provided you have your own allocatoin you can use all compute resource available within Airavata.<br>
-    - SciGaP will host WSO2 IS, MySQL DB for you and als the gateway in SciGaP servers.<br>
+    - Provided you have your own allocation you can use all compute resource available within Airavata.<br>
+    - SciGaP will host your Gateway, WSO2 IS (gateway user account management), MySQL DB for you in SciGaP servers.<br>
+    - For this option contact us through <add contact email, mailing list>
+    <br>
+For more information on SciGaP visit; <a href="http://scigap.org/" target="_blank">SciGaP</a>
 <br>
 <br>2. Gateway hosted by User<br>
     - You have to install all pre requisites such as RabbitMQ, My SQL, etc<br>
     - User installs and hosts Airavata, PGA and WSO2 IS on own servers.<br>
     - Configure and register all compute resources, Gateway configuration on your own<br>
+    - Start from <a href="http://docs.scigap.org/en/latest/Installation/" target="_blank">Installations Page</a>
 
 
 Based on the option you select the level of assistance you receive from Airavata group will differ. 
