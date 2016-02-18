@@ -1,10 +1,12 @@
-## Install Airavata and PGA
-[<button type="button" font-weight=bold color=#44444>AIRAVATA</button>](#Airavata)    [<button type="button" color='#333333'>Airavata Configuration</button>](#AiravataConfig) <br></br>[<button type="button" color='#333333'>PGA on MAC OS</button>](#headPGAMAC)   [<button type="button" color='#333333'>PGA on Cent OS</button>](#PGACentOS)   [<button type="button" color='#333333'>PGA on Ubuntu OS</button>](#PGAUbuntuOS)
+# Install Airavata and PGA
+<b>Select your options below;</b>
 
-### <a name="Airavata"></a>Airavata Installation
+[<button type="button" style="color:darkblue;text-align:center;font-weight:bold;background-color:LightSteelBlue;width:200px;border-radius:4px">Airavata Installation</button>](#Airavata) &nbsp; &nbsp; &nbsp;  [<button type="button" style="color:darkblue;text-align:center;font-weight:bold;background-color:LightSteelBlue;width:200px;border-radius:4px">Airavata Configuration</button>](#AiravataConfig) <br></br>
+[<button type="button" style="color:darkgreen;text-align:center;font-weight:bold;background-color:LightSteelBlue;width:200px;border-radius:4px">PGA on MAC OS</button>](#headPGAMAC)  &nbsp; &nbsp; &nbsp;  [<button type="button"  style="color:darkgreen;text-align:center;font-weight:bold;background-color:LightSteelBlue;width:200px;border-radius:4px">PGA on Cent OS</button>](#PGACentOS)
+## <a name="Airavata"></a>Airavata Installation
 
 
-#### Prerequisites
+### Prerequisites
 1. JAVA 8 or above is required
 	- Java installation on CentOS, Mac, Windows, etc.. - https://docs.oracle.com/javase/8/docs/technotes/guides/install/install_overview.html 
 2. Requires RabbitMQ server running in our local machine.
@@ -19,7 +21,7 @@ tar -xvf rabbitmq-server-mac-standalone-3.4.1.tar.gz
 	http://maven.apache.org/download.cgi#Installation 
 
 
-#### Install Airavata
+### Install Airavata
 1. Create a folder in your local machine to get  copy of Airavata (E.g.: mkdir LocalAiravata). 
 2. Clone the source (If you have not taken a clone prior) code from github (git clone https://github.com/apache/airavata.git) to the above created folder.
 3. After cloning is completed, build the source code by executing following maven command;
@@ -29,43 +31,51 @@ tar -xvf rabbitmq-server-mac-standalone-3.4.1.tar.gz
 	OR
 
 4. Copy the tar file to your local folder created above in step 1
-<pre><code>cp airavata/modules/distribution/server/target/apache-airavata-server-0.15-SNAPSHOT-bin.tar.gz ./</code></pre>
+<pre><code>cp airavata/modules/distribution/server/target/apache-airavata-server-0.16-SNAPSHOT-bin.tar.gz ./</code></pre>
 OR
-<pre><code>cp airavata/modules/distribution/server/target/apache-airavata-server-0.15-SNAPSHOT-bin.zip ./</code></pre>
+<pre><code>cp airavata/modules/distribution/server/target/apache-airavata-server-0.16-SNAPSHOT-bin.zip ./</code></pre>
 5. In the new location where the copied tar/zip file exists; unzip either the tar or zip file of Airavata server distribution using
-<pre><code>unzip apache-airavata-server-0.14-SNAPSHOT-bin.zip</code></pre>
+<pre><code>unzip apache-airavata-server-0.16-SNAPSHOT-bin.zip</code></pre>
 OR
-<pre><code>tar -xvf apache-airavata-server-0.14-SNAPSHOT-bin.tar.gz</code></pre>
+<pre><code>tar -xvf apache-airavata-server-0.16-SNAPSHOT-bin.tar.gz</code></pre>
 6. After either cloning and installing or unzipping, navigate to bin folder which contains file airavata-server.properties;
-  <pre><code>cd apache-airavata-server-0.14-SNAPSHOT/bin</code></pre>
+  <pre><code>cd apache-airavata-server-0.16-SNAPSHOT/bin</code></pre>
 > Hint: For users who downloaded the already built version can directly navigate to this bin folder to start Airavata server.
 7. Open the airavata-server.properties (vi airavata-server.properties) file and update relevant necesary proerpties to run Airavata locally.
 8. In bin start the Airavata server; This may require JAVA_HOME to be defined. Some configurations such as in  bin/zoo.cfg and bin/airavata-server.properties  may have to be adjusted if some ports are already in use. Ports need to be open as well.
 <pre><code>sh airavata-server.sh start</code></pre> (This will run the airavata server in the backgroud in demon mode)
 9. If you are in the target folder use given to start Airavata server;
-<pre><code>sh apache-airavata-server-0.14-SNAPSHOT/bin/airavata-server.sh start</code></pre>
+<pre><code>sh apache-airavata-server-0.16-SNAPSHOT/bin/airavata-server.sh start</code></pre>
 10. To monitor the server starting up, view the airavata server log;
 <pre><code>tail -f airavata-server.out</code></pre>	
 11. For subsequent Airavata copies; in the local Airavata folder where source code is cloned do a git clone https://github.com/apache/airavata.git for the latest trunk.
 
 
-#### <a name="AiravataConfig"></a>Configurations
+### <a name="AiravataConfig"></a>Configurations
 1. If you are using your own MySQL database go and put mysql.jar in to lib of Airavata. navigate to lib;
 <pre><code>cd /LocalFolderPath/apache-airavata-server-0.16-SNAPSHOT/lib</code></pre>
 2. Navigate to airavata-server.properties file in bin folder and change;
-	-  Under 'Monitoring Module Configuration'
-		- 
-		- See my [<button type="button" color='#333333'>Pre-Installations</button>](#head12345) page for details.   
+	- Add MySQL Database configurations
+<pre><code>#MySql database configuration
+          registry.jdbc.driver=com.mysql.jdbc.Driver
+          registry.jdbc.url=jdbc:mysql://xxxx.iu.xsede.org:3333/dev_expcatalog_3333
+          registry.jdbc.user=SampleUser
+          registry.jdbc.password=SampleUserPassword</code></pre>
+	-  Under 'Monitoring Module Configuration' monitoring email account details
+<pre><code>#These properties will used to enable email base monitoring
+           email.based.monitor.host=imap.gmail.com
+           email.based.monitor.address=jobs@sample.org
+           email.based.monitor.password=SamplePassword
+           email.based.monitor.folder.name=INBOX
+           # either imaps or pop3
+           email.based.monitor.store.protocol=imaps</code></pre>
 
+## PGA Installation
 
-### PGA Installation
-
-NOTE: PGA installation steps will differ depending on the operation system in the local machine/server where PGA will be located.
-
-#### <a name="head1234"></a>Prerequisites
-1. Requires a Unix or Unix like operating system
-2. Requires a web server (e.g apache web server) with PHP 5.4 or higher. Make sure have enabled mod_rewrite module in httpd.conf file and enable PHP SOAP extension
-3. Install Composer
+### <a name="head1234"></a>You Need...
+1. A Unix or Unix like operating system
+2. A web server (e.g apache web server) with PHP 5.4 or higher. Make sure have enabled mod_rewrite module in httpd.conf file and enable PHP SOAP extension
+3. Composer
 4. MYSQL database installation (Required if the user is hosting Airavata on his own. To communicate with hosted Airavata this step is not relevant)
 5. MCrypt PHP extension
 6. Enable OpenSSL PHP extension
@@ -76,7 +86,7 @@ NOTE: PGA installation steps will differ depending on the operation system in th
 8. Important: Do not need to install Laravel. You can skip the steps given on the links
 
 
-#### <a name="headPGAMAC"></a>PGA  Installation on MAC Yosemite OS
+### <a name="headPGAMAC"></a>PGA  Installation on MAC Yosemite OS
 ##### <a name="head12345"></a>Pre-Installations
 1. To install MCrypt for PHP on MAC please follow the steps in http://coolestguidesontheplanet.com/install-mcrypt-php-mac-osx-10-10-yosemite-development-server/.
 2. First check wether your MAC has Apache installed. To check availability;
@@ -102,7 +112,7 @@ NOTE: PGA installation steps will differ depending on the operation system in th
 5. Move out of app folder and give;
 <pre><code>sudo composer update</code></pre>
 This will take few minutes
-6. You will get an error like this 
+6. You might get an error like this
 --------------
 Mcrypt PHP extension required.
 Script php artisan clear-compiled handling the post-update-cmd event returned with an error
@@ -127,7 +137,7 @@ http://coolestguidesontheplanet.com/install-mcrypt-php-mac-osx-10-10-yosemite-de
 11. Restart the web server
 <pre><code>sudo apachectl restart</code></pre>
 
-Link Airavata and PGA
+#####Link Airavata and PGA
 1. Once the PGA and Airavata are downloaded and locally running; in PGA app/config folder locate the file called pga_config.php.template
 2. Copy the located file and name it as pga_config.php 
 3. In the newly copied file find two configurations for 
@@ -143,7 +153,8 @@ IMPORTANT: In places where the hosted PGA link is used please replace by your lo
 
 
 
-#### <a name="PGAUbuntuOS"></a>PGA  Installation on Ubuntu OS //http://tecadmin.net/install-java-8-on-centos-rhel-and-fedora/
+### <a name="PGAUbuntuOS"></a>PGA  Installation on Ubuntu OS
+//http://tecadmin.net/install-java-8-on-centos-rhel-and-fedora/
 ##### Pre-Installations
 1. To install dependencies use commands in https://vpsineu.com/blog/how-to-install-laravel-on-a-centos-7-vps/
 In the command avoid installing mysql and mariaDB
