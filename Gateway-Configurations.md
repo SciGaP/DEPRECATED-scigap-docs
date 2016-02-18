@@ -13,9 +13,6 @@ If the user hosts both Airavata and PGA;
 Please follow configuration steps in <link> for IS installation and configuration.
 
 
-
-
-
 ## When SciGaP Host both Airavata and PGA
 ### Super Admin Configurations Tasks
 ####Create & Configure the Gateway in Airavata
