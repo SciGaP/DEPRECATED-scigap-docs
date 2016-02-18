@@ -13,27 +13,31 @@
 - Super Admin
 	- Super admins has access to all the gateways as well as to Airavata and PGA. Currently this role resides with limited members of SGG group at IU.
 	- Create Gateway and set up identity server for user account management. 
-	- Register Computer resource available to submit jobs through Airavata
-	- Add email monitoring accounts detail to Airavata for each gateway
-	- Investigate issues with individual experiments from any of the gateways under SciGaP
+	- Register Computer resource available to submit jobs through Airavata.
+	- Add email monitoring accounts detail to Airavata for each gateway.
+	- Investigate issues with individual experiments from any of the gateways under SciGaP.
 <br>
 <br>
 - Gateway Admin	
-	- Set up gateway preferences for compute resource and data management
-	- Can Cancel, clone experiments of a gateway user through Admin dashboard
-	- Ability to enable disable applications within gateway
-	- Can create gateway specific compute resources for job submission
-	- Can Cancel, clone experiments of a gateway user through Admin dashboard
-<br>
-#####NOTE: If user hosts his own gateway; 'Gateway Admin' role will hold features of both Super Admin and Gateway Admin.
+	- Set up gateway preferences for Compute Resources and Storage Resources
+	- Generate SSH keys and their tokens using Credential Store in Admin Dashboard.
+	- Add the generated SSH token to Gateway Preferences.
+	- Add the generated SSH keys to authorized_key files in each resource.
+	- Can Cancel, clone experiments of a gateway user through Admin dashboard behalf of the user.
+	- Create Applications and their deployments in to the gateway.
+<br><b>NOTE: If user hosts his own gateway; 'Gateway Admin' role will hold features of both Super Admin and Gateway Admin.</b></br><br>
 
 - Gateway Admin-Read-Only
-	- Biggest feature for read-only admins is the ability to monitor experiments through Experiments Statistics in Admin dashboard. They also can edit, cancel and clone an experiment belonging to a gateway user.
-<br>
+	- Can view everything in Admin Dashboard but cannot Add, Edit or Delete any records from dashboard.
+	- Can monitor experiments through Experiments Statistics in Admin dashboard.
+	- Behalf of a gateway user can edit, cancel or clone an experiment.
+</br>
 <br>
 - Gateway User
-	- Request new features, applications via gateway
-	- Report bug, issue to the gateway admin
-	- Password recovery
-		
+	- Create, launch their own experiments in using available applications and compute resources.
+	- Monitor progress of experiment execution.
+	- Group experiments by creating Projects.
+	- Request new features, applications and report bug, issue using Service Desk
+	- Password recovery.
+</br>
 
