@@ -3,10 +3,11 @@ docs_dir: .
 pages:
 - Home: index.md
 - Installations: Installation.md
+- Airavata & PGA Configuration: Gateway-Configurations.md
+- FAQ: FAQ.md
 - User Profiles: User-Profiles.md
-- PGA Gateway: Gateway-Configurations.md
 - Applications: Application-CookBook.md
-- Pending: Pending.md
 - Airavata API: AiravataApi.md
+- Contact Us: Contact-Us.md
 
 theme: readthedocs
