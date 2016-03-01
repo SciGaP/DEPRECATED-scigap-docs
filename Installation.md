@@ -76,9 +76,11 @@ OR
 7. Generate Credential store keystore file in the created local directory.
 <pre><code>	keytool -genseckey -alias airavata -keyalg AES -keysize 128 -storetype jceks -keystore airavata_sym.jks</code></pre>
 For more information visit <a href="https://cwiki.apache.org/confluence/display/AIRAVATA/Credential+Store+Configuration+Guide/" target="_blank">Credential Store Configuration Documentation</a>
-8. Navigate to bin folder which contains file airavata-server.properties and open it;
+8. Go and put mysql.jar in to lib of Airavata. navigate to lib;
+   <pre><code>cd /LocalFolderPath/apache-airavata-server-0.16-SNAPSHOT/lib</code></pre>
+9. Navigate to bin folder which contains file airavata-server.properties and open it;
 <pre><code>vi apache-airavata-server-0.16-SNAPSHOT/bin</code></pre>
-9. Update relevant necessary properties to run Airavata locally.<br>
+10. Update relevant necessary properties to run Airavata locally.<br>
 Change as required;
 	- API Server Registry Configuration
 		- Comment out the derby DB properties
@@ -126,38 +128,37 @@ Change as required;
 		- Make sure
 			- api.secured=false
 			- TLS.enabled=false
+	-  Monitoring Module Configuration
+      	- Add your email address, username and password for email monitoring. This is the email account the job status change emails will be received from compute resources.
+                 email.based.monitor.host=imap.gmail.com
+                 email.based.monitor.address=jobs@sample.org
+                 email.based.monitor.password=SamplePassword
+	-  Zookeeper Server Configuration
+		- For 'Production' scenario make;
+			- embedded.zk=false
 	- AMQP Notification Configuration
-		- 
-
-
-10. In bin start the Airavata server; This may require JAVA_HOME to be defined. Some configurations such as in  bin/zoo.cfg and bin/airavata-server.properties  may have to be adjusted if some ports are already in use. Ports need to be open as well.
+		- Users can use RabbitMQ as 'Guest' users. This is the easy method. For this uncomment
+			- rabbitmq.broker.url=amqp://localhost:5672
+		- To use as a 'Production' user
+			- Navigate to RabbitMQ bin folder.
+			- Make sure the RabbitMQ server is running. For production use <pre><code>rabbitmq-server -detached</code></pre> to start.
+			- Create a virtual-host and user with a password. Follow documentation in <a href="http://blog.dtzq.com/2012/06/rabbitmq-users-and-virtual-hosts.html" target="_blank">RabbitMQ Users & VirtualHost</a>
+			- To create a user; <pre><code>rabbitmqctl add_user Username Password</code></pre>
+			- To create a vitrual-host <pre><code>rabbitmqctl add_vhost vhostauthvhost</cde></pre>
+			- Provide permission to created 'Username'  to the created vhost <pre><code>rabbitmqctl set_permissions -p messaging airavata ".*" ".*" ".*”</code></pre>
+			- Uncomment rabbitmq.broker.url=amqp://Username:Password@localhost:5672/Vhost. Add the created username, password and Vhost in the URL.
+			- If you need to stop RabbitMQ use <pre><code>rabbitmqctl stop</code></pre>.
+			  <br> If the RabbitMQ server stopped then the above user creation, vhost cretion and permission granting commmands need to run again after restarting the servers.
+11. Download and install Zookeeper. Use <a href=" http://www.us.apache.org/dist/zookeeper/zookeeper-3.4.8/" target="_blank">Download Zookeeper</a> <br> You can downlaod and install Zookeeper in the above created local folder; LocalAiravata
+12. Navigate to the Zookeeper bin directory  and start zookeeper <pre><code>zkServer.sh start</code></pre>
+13. In bin start the Airavata server and monitor log messages; This may require JAVA_HOME to be defined. Some configurations such as in  bin/zoo.cfg and bin/airavata-server.properties  may have to be adjusted if some ports are already in use. Ports need to be open as well.
 <pre><code>sh airavata-server.sh start</code></pre> (This will run the airavata server in the background in demon mode)<br>
-11. If you are in the target folder use given to start Airavata server;<br>
+14. If you are in the target folder use given to start Airavata server;<br>
 <pre><code>sh apache-airavata-server-0.16-SNAPSHOT/bin/airavata-server.sh start</code></pre>
-12. To monitor the server starting up, view the airavata server log;<br>
+15. To monitor the server starting up, view the airavata server log;<br>
 <pre><code>tail -f airavata-server.out</code></pre>	
-13. For subsequent Airavata copies; in the local Airavata folder where source code is cloned do a git clone https://github.com/apache/airavata.git for the latest trunk.
+16. For subsequent Airavata copies; in the local Airavata folder where source code is cloned do a git clone https://github.com/apache/airavata.git for the latest trunk.
 
-
-### <a name="AiravataConfig"></a>Configurations
-1. If you are using your own MySQL database go and put mysql.jar in to lib of Airavata. navigate to lib;
-<pre><code>cd /LocalFolderPath/apache-airavata-server-0.16-SNAPSHOT/lib</code></pre>
-2. Navigate to airavata-server.properties file in bin folder and change;
-	- Comment out derby DB configuration parts.
-	- Add MySQL Database configurations
-<pre><code>#MySql database configuration
-          registry.jdbc.driver=com.mysql.jdbc.Driver
-          registry.jdbc.url=jdbc:mysql://xxxx.iu.xsede.org:3333/dev_expcatalog_3333
-          registry.jdbc.user=SampleUser
-          registry.jdbc.password=SampleUserPassword</code></pre>
-	-  Under 'Monitoring Module Configuration' monitoring email account details
-<pre><code>#These properties will used to enable email base monitoring
-           email.based.monitor.host=imap.gmail.com
-           email.based.monitor.address=jobs@sample.org
-           email.based.monitor.password=SamplePassword
-           email.based.monitor.folder.name=INBOX
-           # either imaps or pop3
-           email.based.monitor.store.protocol=imaps</code></pre>
 
 <br></br>
 # PGA Installation
@@ -175,6 +176,58 @@ Change as required;
 	- On MAC OS: http://sangatpedas.com/20140219/installing-laravel-osx-mavericks/
 8. Important: Do not need to install Laravel. You can skip the steps given on the links
 9. WSO2 IS server
+
+## <a name="headPGACENTOS"></a>PGA  Installation on CentOS 7
+### <a name="head12345"></a>Pre-Installations
+1. Install apache 
+<pre><code>Yum install httpd</code></pre>
+2.	module_rewrite is auto enabled in apache version in centos7. Its in /etc/httpd/conf.modules.d/00-base.conf file and the line is LoadModule rewrite_module modules/mod_rewrite.so
+3.	Enable php using <pre><code>yum install php-soap</code></pre> Could be be it is already enabled in CentOS7
+4. Install php using  <pre><code>yum install php</code></pre>
+5. install composer
+<pre><code>yum install composer</code></pre>
+6. Install php-mcrypt <pre><code>yum install php-mcrypt</code></pre>
+
+### Download and Configure PGA
+1. Take the git clone https://github.com/apache/airavata-php-gateway.git
+<br> Needs to take the clone in the document root. in centOS7 its var/www/html
+2. Change the cloned folder name to your desired folder name(e.g.: php-gateway). This will carry sub folders for the gateway
+<pre><code>cp - R airavata-php-gateway /* .</code></pre>
+3. In the gateway folder do a <pre><code<composer update</code></pre>
+4. Give permission to user data folder
+<pre><code>chmod -R 777 /var/www/portals/gateway-user-data/php-gateway</code></pre>
+5. Copy pga_config.template and make  pga_config.php
+6. In pga_config.php change airavata server, change;
+	-  Airavata Client Configurations
+		- 'airavata-server' => 'localhost’,
+		- 'gateway-id' => 'airavata_test_gateway',
+		- 'experiment-data-absolute-path' => '/var/www/experimentData',(Here user has to create the experimentData folder in var/www)
+		- 'gateway-data-store-resource-id' => ''
+	- Portal Related Configurations
+		- 'super-admin-portal' => false, (User has one gateway and need to use it to configure the compute resources, storage resources, etc...)
+		- 'admin-emails' => ['airavatatest100@gmail.com'],
+		- 'portal-email-username' => 'airavatatest100@gmail.com',
+		- 'portal-email-password' => '&airavaxxxxxx',
+	- WSO2 Identity Server Related Configurations
+		- Add WSO2 IS related details URL, username, password, etc…
+
+7. Give writing permission chmod -R g+rwx app/storage/
+<br>in the http config file add URL information for the gateway file path (this is in w54 pga server) vi /etc/httpd/conf/httpd.conf
+8.  Make sure SElinux comparability of airaveata_php_gateway folder. for that give chcon -Rv --type=httpd_sys_content_t airavata-php-gateway/ - this is to make sure this folder is readable by http
+
+9. ls - lZ shows the SELinux context. after the above chcon command do the same for storage folder as well su -c "chcon -R -h -t httpd_sys_script_rw_t [fullpath]/app/storage” - this is to make sure the folder is writable
+
+10. once the URL info added restart the http service 
+<pre><code>systemctl restart  httpd.service</code></pre>
+
+11. Configure firewall to allow http and https
+<pre><code>firewall-cmd --zone=public --list-services</code></pre> - check existing configurations
+<pre><code>firewall-cmd --zone=public --permanent --add-service=http</code></pre> - allow for http
+<pre><code>firewall-cmd --zone=public --permanent --add-service=https</code></pre> - allow for https
+
+<pre><code>firewall-cmd —reload - refresh</code></pre> - to get rules applied. 
+
+
 
 
 ## <a name="headPGAMAC"></a>PGA  Installation on MAC Yosemite OS
@@ -305,41 +358,7 @@ Restart the web server
 sudo service apache2 restart
 
 
-## <a name="PGACentOS"></a>PGA  Installation on Linux/CentOS //http://tecadmin.net/install-java-8-on-centos-rhel-and-fedora/
-### Pre-Installations
-1. To install dependencies use commands in https://vpsineu.com/blog/how-to-install-laravel-on-a-centos-7-vps/
-In the command avoid installing mysql and mariaDB
-2. Enable the appropriate extensions: navigate to php.ini
-	<pre><code>sudo vi /etc/php.ini</code></pre>
-	- Uncomment the following extensions: mcrypt.so, openssl.so, and soap.so. If they do not exists add them as extensions.
-	<pre><code>extension=mcrypt.so</code></pre>
-	<pre><code>extension=openssl.so</code></pre>
-	<pre><code>extension=soap.so</code></pre>
-	- Locate httpd.conf file 
-	<pre><code>sudo vi /etc/httpd/conf/httpd.conf</code></pre>
-	- Find 'AllowOverride None' and change to 'AllowOverride All' (Two places to change)
-	
 
-### Download and Configure PGA
-1. Navigate to /var/www/html 
-<pre><code>cd /var/www/html</code></pre>
-2. Clone the PGA git repository:
-<pre><code>sudo git clone https://github.com/apache/airavata-php-gateway.git</code></pre>
-> Hint: If you get 'git not found' install git first
-3. If not done earlier vi to php.ini and uncomment or add mcrypt.so, openssl.so, and soap.so
-4. Create experimentData folder in html folder and give permission
-make experimentData folder in html folder and I’ve permission
-<pre><code> mkdir experimentData</code></pre>
-chmod -R 777 app/storage
-5. Copy the template ad create a new php.config file for the gatway.
-<pre><code>cp app/config/pga_config.php.template app/config/pga_config.php</code></pre>
-6. Navigate to pga_config file 
-<pre><code>vi app/config/pga_config.php</code></pre>
-Note: make sure to make the directory pointed to by 'experiment-data-root' in pga_config.php and chmod 777 it. By default, this is /var/www/html/experimentData
-7. Configure the PGA storage permissions:
-<pre<code>chmod -R 777 app/storage</code></pre>
-8. Update using Composer:
-<pre><code>sudo composer update</code></pre>
 
 ## FAQs
 1. When installing PGA in MAC i got below error after updating the composer.
