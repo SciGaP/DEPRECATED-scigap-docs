@@ -43,7 +43,6 @@ NOTE: Currently enabling and disabling storage resources is not an active featur
 7. All the resources will be listed. Gateway admin can view, edit, delete and enable and disable them.
 
 
-
 #### Super Admin Configurations Tasks
 #####Create & Configure the Gateway in Airavata
 1. Super admin has to create the gateway in Airavata. If user is using hosted Super this would be done by Super admin. If the user downloads and hosts Airavata privately then Super admin role will be played by the user as well.
