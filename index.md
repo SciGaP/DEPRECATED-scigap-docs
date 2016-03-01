@@ -11,14 +11,14 @@ For more information on Airavata visit; <a href="http://airavata.apache.org/" ta
 <br>
 # How do you want to use Airavata?
 Two options; </br>
-1. Gateway hosted by SciGaP<br>
+1. <b class="darkred">Gateway hosted by SciGaP</b><br>
     - Provided you have your own allocation you can use all compute resource available within Airavata.<br>
     - SciGaP will host your Gateway, WSO2 IS (gateway user account management), MySQL DB for you in SciGaP servers.<br>
     - For this option contact us through <add contact email, mailing list>
     <br>
 For more information on SciGaP visit; <a href="http://scigap.org/" target="_blank">SciGaP</a>
 <br>
-<br>2. Gateway hosted by User<br>
+<br>2. <b class="darkred">Gateway hosted by User</b><br>
     - You have to install all pre requisites such as RabbitMQ, My SQL, etc<br>
     - User installs and hosts Airavata, PGA and WSO2 IS on own servers.<br>
     - Configure and register all compute resources, Gateway configuration on your own<br>
@@ -26,4 +26,4 @@ For more information on SciGaP visit; <a href="http://scigap.org/" target="_blan
 
 
 Based on the option you select the level of assistance you receive from Airavata group will differ. 
-SciGaP or Airavata team will always act as the consultants to science communities and users who are looking out for middleware and gateways.
+<br>SciGaP or Airavata team will always act as the consultants to science communities and users who are looking out for middleware and gateways.
