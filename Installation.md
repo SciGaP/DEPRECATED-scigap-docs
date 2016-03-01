@@ -144,7 +144,7 @@ Change as required;
 			- Make sure the RabbitMQ server is running. For production use <pre><code>rabbitmq-server -detached</code></pre> to start.
 			- Create a virtual-host and user with a password. Follow documentation in <a href="http://blog.dtzq.com/2012/06/rabbitmq-users-and-virtual-hosts.html" target="_blank">RabbitMQ Users & VirtualHost</a>
 			- To create a user; <pre><code>rabbitmqctl add_user Username Password</code></pre>
-			- To create a vitrual-host <pre><code>rabbitmqctl add_vhost vhostauthvhost</cde></pre>
+			- To create a vitrual-host <pre><code>rabbitmqctl add_vhost vhostauthvhost</code></pre>
 			- Provide permission to created 'Username'  to the created vhost <pre><code>rabbitmqctl set_permissions -p messaging airavata ".*" ".*" ".*”</code></pre>
 			- Uncomment rabbitmq.broker.url=amqp://Username:Password@localhost:5672/Vhost. Add the created username, password and Vhost in the URL.
 			- If you need to stop RabbitMQ use <pre><code>rabbitmqctl stop</code></pre>.
