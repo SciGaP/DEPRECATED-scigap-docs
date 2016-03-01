@@ -1,4 +1,4 @@
-# Airavata API
+## Airavata API
 
 For Airavata API documentation please visit <a href="http://airavata.staging.apache.org/documentation/api-docs/0.16/" target="_blank">Airavata 0.16 API Documentation</a>
 
