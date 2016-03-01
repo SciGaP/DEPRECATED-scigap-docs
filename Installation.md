@@ -5,12 +5,12 @@
 <br></br>
 <br><b>Select your options below;</b></br>
 
-[<button type="button" style="color:darkblue;text-align:center;font-weight:bold;background-color:LightSteelBlue;width:200px;border-radius:4px">Airavata Installation</button>](#Airavata) &nbsp; &nbsp; &nbsp;  [<button type="button" style="color:darkblue;text-align:center;font-weight:bold;background-color:LightSteelBlue;width:200px;border-radius:4px">Airavata Configuration</button>](#AiravataConfig) <br></br>
+[<button type="button" style="color:darkblue;text-align:center;font-weight:bold;background-color:LightSteelBlue;width:200px;border-radius:4px">Airavata Prerequisites</button>](#Airavata) &nbsp; &nbsp; &nbsp;  [<button type="button" style="color:darkblue;text-align:center;font-weight:bold;background-color:LightSteelBlue;width:200px;border-radius:4px">Airavata on CentOS 7</button>](#AiravataCent) <br></br>
 [<button type="button" style="color:darkgreen;text-align:center;font-weight:bold;background-color:LightSteelBlue;width:200px;border-radius:4px">PGA on MAC OS</button>](#headPGAMAC)  &nbsp; &nbsp; &nbsp;  [<button type="button"  style="color:darkgreen;text-align:center;font-weight:bold;background-color:LightSteelBlue;width:200px;border-radius:4px">PGA on Cent OS</button>](#headPGACENTOS)
 ## <a name="Airavata"></a>Airavata Installation
 
 
-### General Airavata Prerequisites
+### <a name="#Airavata">General Airavata Prerequisites
 1. JAVA 8 or above is required
 	- Java installation on CentOS, Mac, Windows, etc.. - <a href="https://docs.oracle.com/javase/8/docs/technotes/guides/install/install_overview.html" target="_blank">Oracle JAVA Installation</a>
 2. RabbitMQ
@@ -21,7 +21,7 @@
 	- <a href="http://maven.apache.org/download.cgi" target="_blank">Download Maven</a> (java based code building tool).
 4. MySQL Database
 
-### Airavata Installation on CentOS 7
+### <a name="#AiravataCent"></a>Airavata Installation on CentOS 7
 <b>NOTE: Airavata installation on other operating systems are similar with minor changes.</b></br>
 #### Prerequisites
 1. CentOS 7 Default open JDK 1.8.0. (minimum) is sufficient.
