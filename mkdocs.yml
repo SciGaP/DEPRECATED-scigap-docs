@@ -1,4 +1,5 @@
 site_name: Airavata Operations Manual
+docs_dir: .
 
 pages:
 - Home: index.md
