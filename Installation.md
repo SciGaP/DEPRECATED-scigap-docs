@@ -6,7 +6,7 @@
 <br><b>Select your options below;</b></br>
 
 [<button type="button" style="color:darkblue;text-align:center;font-weight:bold;background-color:LightSteelBlue;width:200px;border-radius:4px">Airavata Installation</button>](#Airavata) &nbsp; &nbsp; &nbsp;  [<button type="button" style="color:darkblue;text-align:center;font-weight:bold;background-color:LightSteelBlue;width:200px;border-radius:4px">Airavata Configuration</button>](#AiravataConfig) <br></br>
-[<button type="button" style="color:darkgreen;text-align:center;font-weight:bold;background-color:LightSteelBlue;width:200px;border-radius:4px">PGA on MAC OS</button>](#headPGAMAC)  &nbsp; &nbsp; &nbsp;  [<button type="button"  style="color:darkgreen;text-align:center;font-weight:bold;background-color:LightSteelBlue;width:200px;border-radius:4px">PGA on Cent OS</button>](#PGACentOS)
+[<button type="button" style="color:darkgreen;text-align:center;font-weight:bold;background-color:LightSteelBlue;width:200px;border-radius:4px">PGA on MAC OS</button>](#headPGAMAC)  &nbsp; &nbsp; &nbsp;  [<button type="button"  style="color:darkgreen;text-align:center;font-weight:bold;background-color:LightSteelBlue;width:200px;border-radius:4px">PGA on Cent OS</button>](#headPGACENTOS)
 ## <a name="Airavata"></a>Airavata Installation
 
 
