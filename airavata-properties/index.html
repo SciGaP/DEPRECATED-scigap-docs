@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../img/favicon.ico">
+
+	<title>Airavata Property File - Airavata Documentation</title>
+
+        <link href="../css/bootstrap-custom.min.css" rel="stylesheet">
+        <link href="../css/font-awesome-4.0.3.css" rel="stylesheet">
+        <link rel="stylesheet" href="../css/highlight.css">
+        <link href="../css/base.css" rel="stylesheet">
+        <link href="../css/extra.css" rel="stylesheet">
+
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+        <![endif]-->
+
+        
+    </head>
+
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+
+            <!-- Main title -->
+            <a class="navbar-brand" href="..">Airavata Documentation</a>
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+            <!-- Main navigation -->
+            <ul class="nav navbar-nav">
+            
+            
+                <li >
+                    <a href="..">Home</a>
+                </li>
+            
+            
+            
+                <li class="dropdown active">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Installations <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        <li >
+                            <a href="../Airavata-Installation/">Airavata</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../PGA-Installation/">PGA</a>
+                        </li>
+                    
+                        <li class="active">
+                            <a href="./">Airavata Property File</a>
+                        </li>
+                    
+                    </ul>
+                </li>
+            
+            
+            
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Configuration <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        <li >
+                            <a href="../Gateway-Configurations/">PGA</a>
+                        </li>
+                    
+                    </ul>
+                </li>
+            
+            
+            
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Documentation <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        <li >
+                            <a href="../User-Profiles/">User Profiles</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../Application-CookBook/">Applications</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../AiravataApi/">Airavata API</a>
+                        </li>
+                    
+                    </ul>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="../FAQ/">FAQ</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="../Contact-Us/">Contact Us</a>
+                </li>
+            
+            
+            </ul>
+
+            <!-- Search, Navigation and Repo links -->
+            <ul class="nav navbar-nav navbar-right">
+                <li >
+                    <a rel="next" href="../PGA-Installation/">
+                        <i class="fa fa-arrow-left"></i> Previous
+                    </a>
+                </li>
+                <li >
+                    <a rel="prev" href="../Gateway-Configurations/">
+                        Next <i class="fa fa-arrow-right"></i>
+                    </a>
+                </li>
+                
+            </ul>
+        </div>
+    </div>
+</div>
+
+        <div class="container">
+            <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+    
+        <li class="main active"><a href="#airavata-server-properties">Airavata Server Properties</a></li>
+        
+    
+    </ul>
+</div></div>
+            <div class="col-md-9" role="main">
+
+<h2 id="airavata-server-properties"><h2 id="airavata-properties.md">Airavata Server Properties</h2></h2>
+<ol>
+<li>API Server Registry Configuration<ul>
+<li>Comment out the derby DB properties</li>
+<li>Change MySQL configurations<ul>
+<li>registry.jdbc.url=jdbc:mysql://localhost:3306/airavata_expcatalog (replace 'localhost' with correct server name if the DB is in a different server)</li>
+<li>registry.jdbc.user=airavata</li>
+<li>registry.jdbc.password=airavata</li>
+<li>default.registry.gateway=php_reference_gateway (give the gateway name you prefer. Default exists in the file)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Application Catalog DB Configuration<ul>
+<li>Comment out the derby DB properties</li>
+<li>Change MySQL configurations<ul>
+<li>appcatalog.jdbc.url=jdbc:mysql://localhost:3306/airavata_appcatalog</li>
+<li>appcatalog.jdbc.user=airavata</li>
+<li>appcatalog.jdbc.password=airavata</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Data Catalog DB Configuration<ul>
+<li>Comment out the derby DB properties</li>
+<li>Change MySQL configurations<ul>
+<li>datacatalog.jdbc.url=jdbc:mysql://localhost:3306/airavata_datacatalog</li>
+<li>datacatalog.jdbc.user=airavata</li>
+<li>datacatalog.jdbc.password=airavata</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Workflow Catalog DB Configuration<ul>
+<li>Comment out the derby DB properties</li>
+<li>Change MySQL configurations<ul>
+<li>workflowcatalog.jdbc.url=jdbc:mysql://localhost:3306/airavata_wfcatalog</li>
+<li>workflowcatalog.jdbc.user=airavatadb</li>
+<li>workflowcatalog.jdbc.password=airavatadb</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Server module Configuration<ul>
+<li>Make sure all servers required to start are added as given<ul>
+<li>servers=apiserver,orchestrator,gfac,credentialstore</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>API Server SSL Configurations<ul>
+<li>Give the correct path for key generation file. This is in the bin directtory and it is shipped defualt with Airavata.<ul>
+<li>apiserver.keystore=/home/airavata/LocalAiravata/apache-airavata-server-0.16-SNAPSHOT/bin/airavata.jks</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Credential Store module Configuration<ul>
+<li>Make sure its 'true' in<ul>
+<li>start.credential.store=true</li>
+</ul>
+</li>
+<li>Add the path to SSH key generation file<ul>
+<li>E.g.: credential.store.keystore.url=/home/airavata/LocalAiravata/airavata-sym.jks</li>
+</ul>
+</li>
+<li>Comment out the derby DB properties</li>
+<li>Change MySQL configurations<ul>
+<li>credential.store.jdbc.url=jdbc:mysql://localhost:3306/airavata_credentialstore</li>
+<li>credential.store.jdbc.user=airavatadb</li>
+<li>credential.store.jdbc.password=airavatadb</li>
+<li>credential.store.keystore.url=/home/airavata/production-deployment/airavata_sym.jks</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>API Security Configuration<ul>
+<li>Make sure<ul>
+<li>api.secured=false</li>
+<li>TLS.enabled=false</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Monitoring Module Configuration<ul>
+<li>Add your email address, username and password for email monitoring. This is the email account the job status change emails will be received from compute resources.
+             email.based.monitor.host=imap.gmail.com
+             email.based.monitor.address=jobs@sample.org
+             email.based.monitor.password=SamplePassword</li>
+</ul>
+</li>
+<li>Zookeeper Server Configuration<ul>
+<li>For 'Production' scenario make;<ul>
+<li>embedded.zk=false</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>AMQP Notification Configuration<ul>
+<li>Users can use RabbitMQ as 'Guest' users. This is the easy method. For this uncomment<ul>
+<li>rabbitmq.broker.url=amqp://localhost:5672</li>
+</ul>
+</li>
+<li>To use as a 'Production' user<ul>
+<li>Navigate to RabbitMQ bin folder.</li>
+<li>Make sure the RabbitMQ server is running. For production use <pre><code>rabbitmq-server -detached</code></pre> to start.</li>
+<li>Create a virtual-host and user with a password. Follow documentation in <a href="http://blog.dtzq.com/2012/06/rabbitmq-users-and-virtual-hosts.html" target="_blank">RabbitMQ Users &amp; VirtualHost</a></li>
+<li>To create a user; <pre><code>rabbitmqctl add_user Username Password</code></pre></li>
+<li>To create a vitrual-host <pre><code>rabbitmqctl add_vhost vhostauthvhost</code></pre></li>
+<li>Provide permission to created 'Username'  to the created vhost <pre><code>rabbitmqctl set_permissions -p messaging airavata ".<em>" ".</em>" ".*”</code></pre></li>
+<li>Uncomment rabbitmq.broker.url=amqp://Username:Password@localhost:5672/Vhost. Add the created username, password and Vhost in the URL.</li>
+<li>If you need to stop RabbitMQ use <pre><code>rabbitmqctl stop</code></pre>
+If the RabbitMQ server stopped then the above user creation, vhost cretion and permission granting commmands need to run again after restarting the servers.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol></div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            
+            <center>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</center>
+        </footer>
+
+        <script src="../js/jquery-1.10.2.min.js"></script>
+        <script src="../js/bootstrap-3.0.3.min.js"></script>
+        <script src="../js/highlight.pack.js"></script>
+        <script src="../js/base.js"></script>
+    </body>
+</html>

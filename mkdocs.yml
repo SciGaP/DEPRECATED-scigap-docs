@@ -1,0 +1,23 @@
+site_name: Airavata Documentation
+docs_dir: .
+site_dir: test
+
+pages:
+- Home: 'index.md'
+- Installations:
+  - Airavata: 'Airavata-Installation.md'
+  - PGA: 'PGA-Installation.md'
+  - Airavata Property File: 'airavata-properties.md'
+- Configuration:
+  - PGA: 'Gateway-Configurations.md'
+- Documentation:
+  - User Profiles: User-Profiles.md
+  - Applications: Application-CookBook.md
+  - Airavata API: AiravataApi.md
+- FAQ: FAQ.md
+- Contact Us: Contact-Us.md
+
+theme: simplex
+
+extra_css:
+  - css/extra.css

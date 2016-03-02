@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../img/favicon.ico">
+
+	<title>PGA - Airavata Documentation</title>
+
+        <link href="../css/bootstrap-custom.min.css" rel="stylesheet">
+        <link href="../css/font-awesome-4.0.3.css" rel="stylesheet">
+        <link rel="stylesheet" href="../css/highlight.css">
+        <link href="../css/base.css" rel="stylesheet">
+        <link href="../css/extra.css" rel="stylesheet">
+
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+        <![endif]-->
+
+        
+    </head>
+
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+
+            <!-- Main title -->
+            <a class="navbar-brand" href="..">Airavata Documentation</a>
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+            <!-- Main navigation -->
+            <ul class="nav navbar-nav">
+            
+            
+                <li >
+                    <a href="..">Home</a>
+                </li>
+            
+            
+            
+                <li class="dropdown active">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Installations <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        <li >
+                            <a href="../Airavata-Installation/">Airavata</a>
+                        </li>
+                    
+                        <li class="active">
+                            <a href="./">PGA</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../airavata-properties/">Airavata Property File</a>
+                        </li>
+                    
+                    </ul>
+                </li>
+            
+            
+            
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Configuration <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        <li >
+                            <a href="../Gateway-Configurations/">PGA</a>
+                        </li>
+                    
+                    </ul>
+                </li>
+            
+            
+            
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Documentation <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        <li >
+                            <a href="../User-Profiles/">User Profiles</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../Application-CookBook/">Applications</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../AiravataApi/">Airavata API</a>
+                        </li>
+                    
+                    </ul>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="../FAQ/">FAQ</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="../Contact-Us/">Contact Us</a>
+                </li>
+            
+            
+            </ul>
+
+            <!-- Search, Navigation and Repo links -->
+            <ul class="nav navbar-nav navbar-right">
+                <li >
+                    <a rel="next" href="../Airavata-Installation/">
+                        <i class="fa fa-arrow-left"></i> Previous
+                    </a>
+                </li>
+                <li >
+                    <a rel="prev" href="../airavata-properties/">
+                        Next <i class="fa fa-arrow-right"></i>
+                    </a>
+                </li>
+                
+            </ul>
+        </div>
+    </div>
+</div>
+
+        <div class="container">
+            <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+    
+        <li class="main active"><a href="#pga-installation">PGA Installation</a></li>
+        
+            <li><a href="#download-and-configure-pga">Download and Configure PGA</a></li>
+        
+    
+        <li class="main "><a href="#download-and-configure-pga_1">Download and Configure PGA</a></li>
+        
+    
+        <li class="main "><a href="#link-airavata-and-pga">Link Airavata and PGA</a></li>
+        
+    
+        <li class="main "><a href="#pre-installations_2">Pre-Installations</a></li>
+        
+    
+        <li class="main "><a href="#download-and-configure-pga_2">Download and Configure PGA</a></li>
+        
+    
+    </ul>
+</div></div>
+            <div class="col-md-9" role="main">
+
+<h1 id="pga-installation">PGA Installation</h1>
+<p><a href="#headPGAMAC"><button type="button" style="color:darkred;text-align:center;font-weight:bold;background-color:Steal;width:200px;border-radius:4px">PGA on MAC OS</button></a>  &nbsp; &nbsp; &nbsp;
+<a href="#headPGACENTOS"><button type="button"  style="color:darkred;text-align:center;font-weight:bold;background-color:Steal;width:200px;border-radius:4px">PGA on Cent OS</button></a></p>
+<h2 id="general-pga-prerequisites"><a name="head1234"></a>General PGA Prerequisites</h2>
+<ol>
+<li>A Unix or Unix like operating system</li>
+<li>A web server (e.g apache web server) with PHP 5.4 or higher. Make sure have enabled mod_rewrite module in httpd.conf file and enable PHP SOAP extension</li>
+<li>Composer</li>
+<li>MYSQL database (Required if the user is hosting Airavata on his own. To communicate with hosted Airavata this step is not relevant)</li>
+<li>MCrypt PHP extension</li>
+<li>Enable OpenSSL PHP extension</li>
+<li>Follow instructions given in links to install the prerequisites based on the OS ;<ul>
+<li>On Ubunutu: http://www.dev-metal.com/install-laravel-4-ubuntu-12-04-lts/</li>
+<li>On Centos: https://www.digitalocean.com/community/tutorials/how-to-install-laravel-4-on-a-centos-6-vps</li>
+<li>On MAC OS: http://sangatpedas.com/20140219/installing-laravel-osx-mavericks/</li>
+</ul>
+</li>
+<li>Important: Do not need to install Laravel. You can skip the steps given on the links</li>
+<li>WSO2 IS server</li>
+</ol>
+<h2 id="pga-installation-on-centos-7"><a name="headPGACENTOS"></a>PGA  Installation on CentOS 7</h2>
+<h3 id="pre-installations"><a name="head12345"></a>Pre-Installations</h3>
+<ol>
+<li>Install apache 
+<pre><code>Yum install httpd</code></pre></li>
+<li>module_rewrite is auto enabled in apache version in centos7. Its in /etc/httpd/conf.modules.d/00-base.conf file and the line is LoadModule rewrite_module modules/mod_rewrite.so</li>
+<li>Enable php using <pre><code>yum install php-soap</code></pre> Could be be it is already enabled in CentOS7</li>
+<li>Install php using  <pre><code>yum install php</code></pre></li>
+<li>install composer
+<pre><code>yum install composer</code></pre></li>
+<li>Install php-mcrypt <pre><code>yum install php-mcrypt</code></pre></li>
+</ol>
+<h3 id="download-and-configure-pga">Download and Configure PGA</h3>
+<ol>
+<li>Take the git clone https://github.com/apache/airavata-php-gateway.git
+<br> Needs to take the clone in the document root. in centOS7 its var/www/html</li>
+<li>Change the cloned folder name to your desired folder name(e.g.: php-gateway). This will carry sub folders for the gateway
+<pre><code>cp - R airavata-php-gateway /* .</code></pre></li>
+<li>In the gateway folder do a <pre><code<composer update</code></pre></li>
+<li>Give permission to user data folder
+<pre><code>chmod -R 777 /var/www/portals/gateway-user-data/php-gateway</code></pre></li>
+<li>Copy pga_config.template and make  pga_config.php</li>
+<li>
+<p>In pga_config.php change airavata server, change;</p>
+<ul>
+<li>Airavata Client Configurations<ul>
+<li>'airavata-server' =&gt; 'localhost’,</li>
+<li>'gateway-id' =&gt; 'airavata_test_gateway',</li>
+<li>'experiment-data-absolute-path' =&gt; '/var/www/experimentData',(Here user has to create the experimentData folder in var/www)</li>
+<li>'gateway-data-store-resource-id' =&gt; ''</li>
+</ul>
+</li>
+<li>Portal Related Configurations<ul>
+<li>'super-admin-portal' =&gt; false, (User has one gateway and need to use it to configure the compute resources, storage resources, etc...)</li>
+<li>'admin-emails' =&gt; ['airavatatest100@gmail.com'],</li>
+<li>'portal-email-username' =&gt; 'airavatatest100@gmail.com',</li>
+<li>'portal-email-password' =&gt; '&amp;airavaxxxxxx',</li>
+</ul>
+</li>
+<li>WSO2 Identity Server Related Configurations<ul>
+<li>Add WSO2 IS related details URL, username, password, etc…</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Give writing permission chmod -R g+rwx app/storage/
+<br>in the http config file add URL information for the gateway file path (this is in w54 pga server) vi /etc/httpd/conf/httpd.conf</p>
+</li>
+<li>
+<p>Make sure SElinux comparability of airaveata_php_gateway folder. for that give chcon -Rv --type=httpd_sys_content_t airavata-php-gateway/ - this is to make sure this folder is readable by http</p>
+</li>
+<li>
+<p>ls - lZ shows the SELinux context. after the above chcon command do the same for storage folder as well su -c "chcon -R -h -t httpd_sys_script_rw_t [fullpath]/app/storage” - this is to make sure the folder is writable</p>
+</li>
+<li>
+<p>once the URL info added restart the http service 
+<pre><code>systemctl restart  httpd.service</code></pre></p>
+</li>
+<li>
+<p>Configure firewall to allow http and https
+<pre><code>firewall-cmd --zone=public --list-services</code></pre> - check existing configurations
+<pre><code>firewall-cmd --zone=public --permanent --add-service=http</code></pre> - allow for http
+<pre><code>firewall-cmd --zone=public --permanent --add-service=https</code></pre> - allow for https</p>
+</li>
+</ol>
+<pre><code>firewall-cmd —reload - refresh</code></pre>
+
+<ul>
+<li>to get rules applied. </li>
+</ul>
+<h2 id="pga-installation-on-mac-yosemite-os"><a name="headPGAMAC"></a>PGA  Installation on MAC Yosemite OS</h2>
+<h3 id="pre-installations_1"><a name="head12345"></a>Pre-Installations</h3>
+<ol>
+<li>To install MCrypt for PHP on MAC please follow the steps in http://coolestguidesontheplanet.com/install-mcrypt-php-mac-osx-10-10-yosemite-development-server/.</li>
+<li>First check wether your MAC has Apache installed. To check availability;
+<pre><code>apache ctrl start</code></pre></li>
+<li>To stop running Apache use;
+<pre><code>apache ctl stop</code></pre></li>
+<li>Once above is completed follow the steps given in https://web.archive.org/web/20150507101703/http://sangatpedas.com/20140219/installing-laravel-osx-mavericks for<ul>
+<li>Configuring Apache</li>
+<li>Installing Composer (Use sudo commands as and when required for installation)</li>
+</ul>
+</li>
+<li>To install Composer use 
+<pre><code>curl -sS https://getcomposer.org/installer | php</code></pre></li>
+<li>Then move Composer using 
+<pre><code>mv composer.phar /usr/local/bin/composer</code></pre></li>
+</ol>
+<h3 id="download-and-configure-pga_1">Download and Configure PGA</h3>
+<ol>
+<li>Go to cd /Library/WebServer/Documents</li>
+<li>Take a copy from GIT using 
+<pre><code>git clone https://github.com/apache/airavata-php-gateway.git</code></pre></li>
+<li>Navigate to PGA folder
+<pre><code>cd /Library/WebServer/Documents/airavata-php-gateway</code></pre></li>
+<li>Make sure the storage folder is writable by all users
+<pre><code>sudo chmod -R 777 app/storage</code></pre></li>
+<li>Move out of app folder and give;
+<pre><code>sudo composer update</code></pre>
+This will take few minutes</li>
+<li>You might get an error like this</li>
+</ol>
+<hr />
+<p>Mcrypt PHP extension required.
+Script php artisan clear-compiled handling the post-update-cmd event returned with an error</p>
+<p>[RuntimeException]
+  Error Output:</p>
+<hr />
+<ol>
+<li>install mcrypt installation 
+http://coolestguidesontheplanet.com/install-mcrypt-php-mac-osx-10-10-yosemite-development-server/</li>
+<li>(Optional) Go to [PGA_HOME]/app/config/pga_config.php and change the configuration to match your settings</li>
+<li>Enable Apache extensions (mod_rewrite module and PHP SOAP extension)
+<pre><code>sudo vim /etc/apache2/httpd.conf</code></pre>
+    uncomment #LoadModule rewrite_module libexec/apache2/mod_rewrite.so
+    uncomment #LoadModule php5_module libexec/apache2/libphp5.so</li>
+<li>Now issue composer update command
+<pre><code>sudo composer update</code></pre></li>
+<li>Restart the web server
+<pre><code>sudo apachectl restart</code></pre></li>
+</ol>
+<h3 id="link-airavata-and-pga">Link Airavata and PGA</h3>
+<ol>
+<li>Once the PGA and Airavata are downloaded and locally running; in PGA app/config folder locate the file called pga_config.php.template</li>
+<li>Copy the located file and name it as pga_config.php </li>
+<li>In the newly copied file find two configurations for <ul>
+<li>Airavata host</li>
+<li>Port</li>
+</ul>
+</li>
+<li>Change above configurations<ul>
+<li>Airavata host = localhost</li>
+<li>Port = 9930</li>
+</ul>
+</li>
+<li>You are all set to run your own PGA!</li>
+<li>For steps to register resources, applications, etc… use <Link to admin guide></li>
+<li>For steps to create projects, experiments and monitor them use <Link to end user guide>
+IMPORTANT: In places where the hosted PGA link is used please replace by your locally running PGA URL.</li>
+</ol>
+<h2 id="pga-installation-on-ubuntu-os"><a name="PGAUbuntuOS"></a>PGA  Installation on Ubuntu OS</h2>
+<p>//http://tecadmin.net/install-java-8-on-centos-rhel-and-fedora/</p>
+<h3 id="pre-installations_2">Pre-Installations</h3>
+<ol>
+<li>To install dependencies use commands in https://vpsineu.com/blog/how-to-install-laravel-on-a-centos-7-vps/
+In the command avoid installing mysql and mariaDB</li>
+<li>Enable the appropriate extensions: navigate to php.ini
+    <pre><code>sudo vi /etc/php.ini</code></pre><ul>
+<li>Uncomment the following extensions: mcrypt.so, openssl.so, and soap.so. If they do not exists add them as extensions.
+<pre><code>extension=mcrypt.so</code></pre>
+<pre><code>extension=openssl.so</code></pre>
+<pre><code>extension=soap.so</code></pre></li>
+<li>Locate httpd.conf file 
+<pre><code>sudo vi /etc/httpd/conf/httpd.conf</code></pre></li>
+<li>Find 'AllowOverride None' and change to 'AllowOverride All' (Two places to change)</li>
+</ul>
+</li>
+</ol>
+<h3 id="download-and-configure-pga_2">Download and Configure PGA</h3>
+<ol>
+<li>The following guide give a sample installation starting from a fresh Ubunutu 12.04 installation. Similar instructions should be used in other operating systems.</li>
+<li>Update the ubuntu package manager
+<pre><code>sudo apt-get update</pre></code>
+<pre><code>sudo apt-get upgrade </pre></code></li>
+<li>Install Apache
+</pre></code>sudo apt-get install apache2</pre></code></li>
+<li>Install PHP 5.4
+<pre><code>sudo apt-get install python-software-properties</pre></code>
+<pre><code>sudo add-apt-repository ppa:ondrej/php5-oldstable</pre></code>
+<pre><code>sudo apt-get update</pre></code>
+<pre><code>sudo apt-cache policy php5</pre></code>
+<pre><code>sudo apt-get install php5</pre></code></li>
+<li>You can check the installed versions of apache and php using <pre><code>apache2 -v</pre></code> and <pre><code>php -v commands</pre></code></li>
+<li>Install the necessary php extensions
+<pre><code>sudo apt-get install unzip</pre></code>
+<pre><code>sudo apt-get install curl</pre></code>
+<pre><code>sudo apt-get install openssl</pre></code>
+<pre><code>sudo apt-get install php5-mcrypt</pre></code>
+<pre><code>sudo apt-get install php-soap</pre></code></li>
+<li>Install Composer System Wide
+<pre><code>curl -sS https://getcomposer.org/installer | php</pre></code>
+<pre><code>sudo mv composer.phar /usr/local/bin/composer</pre></code></li>
+<li>Activate mod_rewrite
+<pre><code>sudo a2enmod rewrite</pre></code>
+<pre><code>sudo service apache2 restart</pre></code></li>
+<li>Open the default vhost config file:
+ <pre><code>sudo nano /etc/apache2/sites-available/default. </pre></code></li>
+<li>Now search for “AllowOverride None”  corresponding “DocumentRoot /var/www <Directory /var/www>”
+<br>(which should be there TWO times) and change both to “AllowOverride All“. Search for these two lines.</br></li>
+<li>Exit and save with CTRL+X, Y, ENTER.</li>
+</ol>
+<p>Download PGA from GIT
+Download PGA from github to the document root of you web server /var/www. 
+Use git clone https://github.com/apache/airavata-php-gateway.git or download the zip from the github web page.
+Go inside the PGA directory (e.g /var/www/airavata-php-gateway)
+Make sure the storage folder is writable
+sudo chmod -R 755 app/storage
+Go to [PGA_HOME]/app/config/pga_config.php and change the configuration to match your settings</p>
+<p>Now issue composer install command
+sudo composer install
+Restart the web server
+sudo service apache2 restart</p></div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            
+            <center>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</center>
+        </footer>
+
+        <script src="../js/jquery-1.10.2.min.js"></script>
+        <script src="../js/bootstrap-3.0.3.min.js"></script>
+        <script src="../js/highlight.pack.js"></script>
+        <script src="../js/base.js"></script>
+    </body>
+</html>

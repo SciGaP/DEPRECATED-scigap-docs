@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../img/favicon.ico">
+
+	<title>PGA - Airavata Documentation</title>
+
+        <link href="../css/bootstrap-custom.min.css" rel="stylesheet">
+        <link href="../css/font-awesome-4.0.3.css" rel="stylesheet">
+        <link rel="stylesheet" href="../css/highlight.css">
+        <link href="../css/base.css" rel="stylesheet">
+        <link href="../css/extra.css" rel="stylesheet">
+
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+        <![endif]-->
+
+        
+    </head>
+
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+
+            <!-- Main title -->
+            <a class="navbar-brand" href="..">Airavata Documentation</a>
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+            <!-- Main navigation -->
+            <ul class="nav navbar-nav">
+            
+            
+                <li >
+                    <a href="..">Home</a>
+                </li>
+            
+            
+            
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Installations <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        <li >
+                            <a href="../Airavata-Installation/">Airavata</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../PGA-Installation/">PGA</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../airavata-properties/">Airavata Property File</a>
+                        </li>
+                    
+                    </ul>
+                </li>
+            
+            
+            
+                <li class="dropdown active">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Configuration <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        <li class="active">
+                            <a href="./">PGA</a>
+                        </li>
+                    
+                    </ul>
+                </li>
+            
+            
+            
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Documentation <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        <li >
+                            <a href="../User-Profiles/">User Profiles</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../Application-CookBook/">Applications</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../AiravataApi/">Airavata API</a>
+                        </li>
+                    
+                    </ul>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="../FAQ/">FAQ</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="../Contact-Us/">Contact Us</a>
+                </li>
+            
+            
+            </ul>
+
+            <!-- Search, Navigation and Repo links -->
+            <ul class="nav navbar-nav navbar-right">
+                <li >
+                    <a rel="next" href="../airavata-properties/">
+                        <i class="fa fa-arrow-left"></i> Previous
+                    </a>
+                </li>
+                <li >
+                    <a rel="prev" href="../User-Profiles/">
+                        Next <i class="fa fa-arrow-right"></i>
+                    </a>
+                </li>
+                
+            </ul>
+        </div>
+    </div>
+</div>
+
+        <div class="container">
+            <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+    
+        <li class="main active"><a href="#pga-configurations">PGA Configurations</a></li>
+        
+            <li><a href="#you-need-to-have">You Need to Have</a></li>
+        
+            <li><a href="#airavata-component-configuration">Airavata Component Configuration</a></li>
+        
+            <li><a href="#compute-resources">Compute Resources</a></li>
+        
+            <li><a href="#storage-resources">Storage Resources</a></li>
+        
+            <li><a href="#gatewaypreferences-for-resources">GatewayPreferences for Resources</a></li>
+        
+            <li><a href="#application-catalog">Application Catalog</a></li>
+        
+            <li><a href="#credential-store">Credential Store</a></li>
+        
+            <li><a href="#wso2-is-configuration">WSO2 IS Configuration</a></li>
+        
+    
+    </ul>
+</div></div>
+            <div class="col-md-9" role="main">
+
+<h2 id="pga-configurations">PGA Configurations</h2>
+<h3 id="you-need-to-have">You Need to Have</h3>
+<ol>
+<li>Airavata &amp; PGA installed and running</li>
+<li>Tenant created in WSO2 IS hosted by you or SGG</li>
+<li>Administrator privileges to the gateway with username and password
+<br>
+<br></li>
+</ol>
+<h3 id="airavata-component-configuration">Airavata Component Configuration</h3>
+<ol>
+<li>For this we use 'Admin Dashboard'</li>
+<li>Gateway Admin need to configure;<br><ul>
+<li><a href="#CompResource">Compute Resources</a><br></li>
+<li><a href="#CompResource">Compute Resources</a><br></li>
+<li><a href="#StoreResource">Storage Resources</a><br></li>
+<li><a href= "#Preference">Resource Preferences</a><br></li>
+<li><a href= "#AppCatalog">Application Catalog</a><br><ul>
+<li>Application Module<br></li>
+<li>Application Interface<br></li>
+<li>Application Deployment<br></li>
+</ul>
+</li>
+<li><a href= "#Credentials">Credential Store</a><ul>
+<li>Generate Credential Store Token + SSH Key.</li>
+<li>Add these to authorized key files and into preferences.
+<br>
+<br></li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<h3 id="compute-resources"><h3 id="CompResource">Compute Resources</h3></h3>
+<ol>
+<li>Navigate to Admin Dashboard --&gt; Compute Resources --&gt; Register</li>
+<li>Add Host Name, Description and create the resource.</li>
+<li>Then add data storage information in<ul>
+<li>Data Movement Interfaces</li>
+</ul>
+</li>
+<li>And Save.</li>
+<li>Similarly you can add multiple storage resources in to your gateway by selecting 'Register' from the left-hand-side menu.</li>
+<li>To view the added resources navigate to Admin Dashboard --&gt; Storage Resources --&gt; Browse</li>
+<li>All the resources will be listed. Gateway admin can view, edit, delete them.
+NOTE: Currently enabling and disabling storage resources is not an active feature.
+<br>
+<br></li>
+</ol>
+<h3 id="storage-resources"><h3 id="StoreResource">Storage Resources</h3></h3>
+<ol>
+<li>Navigate to Admin Dashboard --&gt; Storage Resources --&gt; Register</li>
+<li>Add Storage Name, Description and create the resource.</li>
+<li>Then keep adding information on rest of the tabs appeared.<ul>
+<li>Queues</li>
+<li>File Systems (Not required at the moment)</li>
+<li>Job Submission Interfaces</li>
+<li>Data Movement Interfaces</li>
+</ul>
+</li>
+<li>And Save.</li>
+<li>Similarly you can add multiple compute resources in to your gateway by selecting 'Register' from the left-hand-side menu.</li>
+<li>To view the added compute resources navigate to Admin Dashboard --&gt; Compute Resource --&gt; Browse</li>
+<li>All the resources will be listed. Gateway admin can view, edit, delete and enable and disable them.
+<br>
+<br></li>
+</ol>
+<h3 id="gatewaypreferences-for-resources"><h3 id="Preference">GatewayPreferences for Resources</h3></h3>
+<ol>
+<li>Navigate Admin Dashboard --&gt; Gateway Preferences</li>
+<li>Both compute resource and storage resource specific preferences are defined here.</li>
+<li>To add compute resource related preferences select the resource from the drop-down list and add/select preferred options and set preferences.
+<br>Repeat this for every active enabled compute resource in the gateway.</li>
+<li>For each gateway admin need to;<ul>
+<li>whether the preferences can be overridden by Airavata - Yes/No</li>
+<li>Resource login name</li>
+<li>Preferred job submission and data movement protocols</li>
+<li>Preferred queue</li>
+<li>Scratch location</li>
+<li>Project allocation number</li>
+<li>Resource specific credential store token
+<br>
+<br></li>
+</ul>
+</li>
+</ol>
+<h3 id="application-catalog"><h3 id="AppCatalog">Application Catalog</h3></h3>
+<ol>
+<li>Gateway admin add applications in to the gateway. Adding an application is a 3 step process</li>
+<li>admin need to add application module, interface and deployment information in order to launch jobs on compute resources</li>
+<li>What each step means?<ul>
+<li>Application module - Admin Dashboard --&gt; App Catalog --&gt; Module
+This is the simple introduction of the application.</li>
+<li>Application interface - Admin Dashboard --&gt; App Catalog --&gt; Interface
+Application interface defines the required inputs, output produced and their characteristics.</li>
+<li>Application deployment - Admin Dashboard --&gt; App Catalog --&gt; Deployment
+Application deployment describes application deployment details in specific resource.
+<br>
+<br></li>
+</ul>
+</li>
+</ol>
+<h3 id="credential-store"><h3 id="Credentials">Credential Store</h3></h3>
+<h3 id="wso2-is-configuration"><h3 id="Preference">WSO2 IS Configuration</h3></h3>
+<ol>
+<li>Setting up WSO2 IS for the new gateway.</li>
+<li>Once PGA is cloned all information related to user identity will be in app/config/pga_config.php. No modifications required for users who are using  hosted IS.</li>
+<li>For user identity management we could either use Airavata WSO2 IS or users own WSO2 IS.</li>
+<li>Download WSO2 Identity Server 5.0 from http://product-dist.wso2.com/products/identity-server/5.0.0/wso2is-5.0.0.zip</li>
+<li>Extract the downloaded IS binary archive to a location <IS_HOME>.</li>
+<li>Set JAVA_HOME variable and add jdk bin directory to the PATH variable.</li>
+<li>Open <IS_HOME>/repository/conf/carbon.xml and change the following property to false
+<HideAdminServiceWSDLs>false</HideAdminServiceWSDLs></li>
+<li>Execute the following command to run the server
+sh <IS_HOME>/bin/wso2server.sh
+You should be able to login to the Identity Server Web App using your browser with url http://localhost:9443/carbon . Default admin credentials are username: admin, password: admin</li>
+<li>For more information regarding WSO2 Identity Server refer this https://docs.wso2.org/display/IS460/Deploying+in+Production
+Gateway admin will be provided with<ul>
+<li>Domain URL for the Gateway</li>
+<li>Admin User name</li>
+</ul>
+</li>
+</ol></div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            
+            <center>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</center>
+        </footer>
+
+        <script src="../js/jquery-1.10.2.min.js"></script>
+        <script src="../js/bootstrap-3.0.3.min.js"></script>
+        <script src="../js/highlight.pack.js"></script>
+        <script src="../js/base.js"></script>
+    </body>
+</html>

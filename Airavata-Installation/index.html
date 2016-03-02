@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../img/favicon.ico">
+
+	<title>Airavata - Airavata Documentation</title>
+
+        <link href="../css/bootstrap-custom.min.css" rel="stylesheet">
+        <link href="../css/font-awesome-4.0.3.css" rel="stylesheet">
+        <link rel="stylesheet" href="../css/highlight.css">
+        <link href="../css/base.css" rel="stylesheet">
+        <link href="../css/extra.css" rel="stylesheet">
+
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+        <![endif]-->
+
+        
+    </head>
+
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+
+            <!-- Main title -->
+            <a class="navbar-brand" href="..">Airavata Documentation</a>
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+            <!-- Main navigation -->
+            <ul class="nav navbar-nav">
+            
+            
+                <li >
+                    <a href="..">Home</a>
+                </li>
+            
+            
+            
+                <li class="dropdown active">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Installations <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        <li class="active">
+                            <a href="./">Airavata</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../PGA-Installation/">PGA</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../airavata-properties/">Airavata Property File</a>
+                        </li>
+                    
+                    </ul>
+                </li>
+            
+            
+            
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Configuration <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        <li >
+                            <a href="../Gateway-Configurations/">PGA</a>
+                        </li>
+                    
+                    </ul>
+                </li>
+            
+            
+            
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Documentation <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        <li >
+                            <a href="../User-Profiles/">User Profiles</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../Application-CookBook/">Applications</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../AiravataApi/">Airavata API</a>
+                        </li>
+                    
+                    </ul>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="../FAQ/">FAQ</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="../Contact-Us/">Contact Us</a>
+                </li>
+            
+            
+            </ul>
+
+            <!-- Search, Navigation and Repo links -->
+            <ul class="nav navbar-nav navbar-right">
+                <li >
+                    <a rel="next" href="..">
+                        <i class="fa fa-arrow-left"></i> Previous
+                    </a>
+                </li>
+                <li >
+                    <a rel="prev" href="../PGA-Installation/">
+                        Next <i class="fa fa-arrow-right"></i>
+                    </a>
+                </li>
+                
+            </ul>
+        </div>
+    </div>
+</div>
+
+        <div class="container">
+            <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+    
+        <li class="main active"><a href="#install-airavata">Install Airavata</a></li>
+        
+            <li><a href="#general-airavata-prerequisites">General Airavata Prerequisites</a></li>
+        
+            <li><a href="#prerequisites">Prerequisites</a></li>
+        
+            <li><a href="#install-airavata_1">Install Airavata</a></li>
+        
+    
+    </ul>
+</div></div>
+            <div class="col-md-9" role="main">
+
+<h2 id="install-airavata">Install Airavata</h2>
+<p><b>NOTE: Below instructions are for users who host Airavata by themselves.
+<br>For communities who require SciGaP to host the gateway can contact through <a href="http://docs.scigap.org/en/latest/Contact-Us/" target="_blank">SciGaP - Contact Us</a></b>
+<br></br>
+<br><b>Click your option;</b></br></p>
+<p><a href="#Airavata"><button type="button" style="color:darkred;text-align:center;font-weight:bold;background-color:Steal;width:200px;border-radius:4px">Airavata Prerequisites</button></a> &nbsp; &nbsp; &nbsp;
+<a href="#AiravataCent"><button type="button" style="color:darkred;text-align:center;font-weight:bold;background-color:Steal;width:200px;border-radius:4px">Airavata on CentOS 7</button></a> <br></br></p>
+<h3 id="general-airavata-prerequisites"><h3 id="Airavata">General Airavata Prerequisites</h3></h3>
+<ol>
+<li>JAVA 8 or above is required<ul>
+<li>Java installation on CentOS, Mac, Windows, etc.. - <a href="https://docs.oracle.com/javase/8/docs/technotes/guides/install/install_overview.html" target="_blank">Oracle JAVA Installation</a></li>
+</ul>
+</li>
+<li>RabbitMQ<ul>
+<li><a href="https://www.rabbitmq.com/download.html" target="_blank">Download the RabbitMQ Binary</a><br>Select the download file as per the operating system of your machine/server.</li>
+<li>Same link has installing guide documentation as well. E.g.:<a href="https://www.rabbitmq.com/install-standalone-mac.html" target="_blank">MAC Installation Guide</a></li>
+<li>For  detailed information on getting RabbitMQ started, stopped, etc please visit <a href="https://www.rabbitmq.com/documentation.html" target="_blank">RabbitMQ Documentation</a></li>
+</ul>
+</li>
+<li>Maven<ul>
+<li><a href="http://maven.apache.org/download.cgi" target="_blank">Download Maven</a> (java based code building tool).</li>
+</ul>
+</li>
+<li>MySQL Database</li>
+</ol>
+<h3 id="airavata-installation-on-centos-7"><a name="#AiravataCent"></a>Airavata Installation on CentOS 7</h3>
+<p><b>NOTE: Airavata installation on other operating systems are similar with minor changes.</b></br></p>
+<h4 id="prerequisites">Prerequisites</h4>
+<ol>
+<li>CentOS 7 Default open JDK 1.8.0. (minimum) is sufficient.</li>
+<li>Download RabbitMQ binary for CentOS 7
+<a href="https://https://www.rabbitmq.com/install-generic-unix.html" target="_blank">Download RabbitMQ Binary for CentOS</a><br></li>
+<li>Prerequisite for RabbitmQ Erlang can be installed using yum
+<pre><code>yum install Erlang</code></pre></li>
+<li>Unzip the downloaded RabbitMQ tar file into a folder in your local machine.
+<pre><code>tar -xvf rabbitmq-server-mac-standalone-3.4.1.tar.gz</code></pre></li>
+<li>Start the RabbitMQ server in the bin folder using;
+ <pre><code>./sbin/rabbitmq-server start</code></pre></li>
+<li>Install Maven using yum install. ((install the latest maven 3.3.9. Default Maven default of centOS 7).
+<pre><code>yum install maven</code></pre></li>
+<li>Install MySQL database
+<pre><code>yum install mariadb-server</code></pre></li>
+<li>Start maria DB with;
+<pre><code>systemstl start mariadb</code><pre></li>
+<li>While maria DB is running run
+<pre><code>mysql _secure_installation</code></pre>
+When executing above it will ask you for root password; provide it.</li>
+<li>Create databases required for Airavata
+<pre><code>create database airavata_appcatalog;</code></pre>
+<pre><code>create database airavata_expcatalog;</code></pre>
+<pre><code>create database airavata_datacatalog;</code></pre>
+<pre><code>create database airavata_credentialstore;</code></pre>
+<pre><code>create database airavata_wfcatalog;</code></pre></li>
+<li>Grant permission to these databases for Airavata<br>
+Command syntax: <pre><code>grant all privileges on 'DB-Name'.<p>&#x204E; to 'username'@'%' identified by 'password’;</code></pre>
+E.g.: <pre><code>grant all privileges on airavata_appcatalog.<p>&#x204E; to 'airavatadb'@'%' identified by 'airavatadb’;</code></pre>
+NOTE: Grant permission to every databased created above. % can be replaced by  'localhost' (if DB is also in the same server as airavata). If DB is in a different server give the server name.
+<br></li>
+</ol>
+<h4 id="install-airavata_1">Install Airavata</h4>
+<ol>
+<li>Create a folder in your local machine (E.g.: mkdir LocalAiravata).<br></li>
+<li>Clone the master source (If you have not taken a clone prior) code from github to the created folder.<br>
+<pre><code>git clone https://github.com/apache/airavata.git</code></pre></li>
+<li>After cloning is completed, build the source code by executing following maven command (In LocalAiravata directory you made);
+<pre><code>mvn clean install</code></pre>
+Hint: To avoid tests (recommended for first time users) use
+<pre><code>mvn clean install -Dmaven.test.skip=true</code></pre></li>
+<li>Locate the tar file in target directory
+Path:
+<pre><code>cd airavata/distribution/target/</code></pre></li>
+<li>Navigate to locally created directory (LocalAiravata) copy the tar file
+<pre><code>cp airavata/distribution/target/apache-airavata-server-0.16-SNAPSHOT-bin.tar.gz ./</code></pre>
+OR
+<pre><code>cp airavata/distribution/target/apache-airavata-server-0.16-SNAPSHOT-bin.tar.zip ./</code></pre></li>
+<li>Now unzip either the tar or zip file of Airavata server distribution;
+<pre><code>unzip apache-airavata-server-0.16-SNAPSHOT-bin.zip</code></pre>
+OR
+<pre><code>tar xvzf apache-airavata-server-0.16-SNAPSHOT-bin.tar.gz</code></pre></li>
+<li>Generate Credential store keystore file in the created local directory.
+<pre><code> keytool -genseckey -alias airavata -keyalg AES -keysize 128 -storetype jceks -keystore airavata_sym.jks</code></pre>
+For more information visit <a href="https://cwiki.apache.org/confluence/display/AIRAVATA/Credential+Store+Configuration+Guide/" target="_blank">Credential Store Configuration Documentation</a></li>
+<li>Go and put mysql.jar in to lib of Airavata. navigate to lib;
+   <pre><code>cd /LocalFolderPath/apache-airavata-server-0.16-SNAPSHOT/lib</code></pre></li>
+<li>Navigate to bin folder which contains file airavata-server.properties and open it;
+<pre><code>vi apache-airavata-server-0.16-SNAPSHOT/bin</code></pre></li>
+<li>Update relevant necessary properties to run Airavata locally.<br>
+Change as required;<a href="../Installations/airavata-properties.md">test</a><ul>
+<li>API Server Registry Configuration<ul>
+<li>Comment out the derby DB properties</li>
+<li>Change MySQL configurations<ul>
+<li>registry.jdbc.url=jdbc:mysql://localhost:3306/airavata_expcatalog (replace 'localhost' with correct server name if the DB is in a different server)</li>
+<li>registry.jdbc.user=airavata</li>
+<li>registry.jdbc.password=airavata</li>
+<li>default.registry.gateway=php_reference_gateway (give the gateway name you prefer. Default exists in the file)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Application Catalog DB Configuration<ul>
+<li>Comment out the derby DB properties</li>
+<li>Change MySQL configurations<ul>
+<li>appcatalog.jdbc.url=jdbc:mysql://localhost:3306/airavata_appcatalog</li>
+<li>appcatalog.jdbc.user=airavata</li>
+<li>appcatalog.jdbc.password=airavata</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Data Catalog DB Configuration<ul>
+<li>Comment out the derby DB properties</li>
+<li>Change MySQL configurations<ul>
+<li>datacatalog.jdbc.url=jdbc:mysql://localhost:3306/airavata_datacatalog</li>
+<li>datacatalog.jdbc.user=airavata</li>
+<li>datacatalog.jdbc.password=airavata</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Workflow Catalog DB Configuration<ul>
+<li>Comment out the derby DB properties</li>
+<li>Change MySQL configurations<ul>
+<li>workflowcatalog.jdbc.url=jdbc:mysql://localhost:3306/airavata_wfcatalog</li>
+<li>workflowcatalog.jdbc.user=airavatadb</li>
+<li>workflowcatalog.jdbc.password=airavatadb</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Server module Configuration<ul>
+<li>Make sure all servers required to start are added as given<ul>
+<li>servers=apiserver,orchestrator,gfac,credentialstore</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>API Server SSL Configurations<ul>
+<li>Give the correct path for key generation file. This is in the bin directtory and it is shipped defualt with Airavata.<ul>
+<li>apiserver.keystore=/home/airavata/LocalAiravata/apache-airavata-server-0.16-SNAPSHOT/bin/airavata.jks</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Credential Store module Configuration<ul>
+<li>Make sure its'true' in<ul>
+<li>start.credential.store=true</li>
+</ul>
+</li>
+<li>Add the path to SSH key generation file<ul>
+<li>E.g.: credential.store.keystore.url=/home/airavata/LocalAiravata/airavata-sym.jks</li>
+</ul>
+</li>
+<li>Comment out the derby DB properties</li>
+<li>Change MySQL configurations<ul>
+<li>credential.store.jdbc.url=jdbc:mysql://localhost:3306/airavata_credentialstore</li>
+<li>credential.store.jdbc.user=airavatadb</li>
+<li>credential.store.jdbc.password=airavatadb</li>
+</ul>
+</li>
+<li>credential.store.keystore.url=/home/airavata/production-deployment/airavata_sym.jks</li>
+</ul>
+</li>
+<li>API Security Configuration<ul>
+<li>Make sure<ul>
+<li>api.secured=false</li>
+<li>TLS.enabled=false</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Monitoring Module Configuration<ul>
+<li>Add your email address, username and password for email monitoring. This is the email account the job status change emails will be received from compute resources.
+         email.based.monitor.host=imap.gmail.com
+         email.based.monitor.address=jobs@sample.org
+         email.based.monitor.password=SamplePassword</li>
+</ul>
+</li>
+<li>Zookeeper Server Configuration<ul>
+<li>For 'Production' scenario make;<ul>
+<li>embedded.zk=false</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>AMQP Notification Configuration<ul>
+<li>Users can use RabbitMQ as 'Guest' users. This is the easy method. For this uncomment<ul>
+<li>rabbitmq.broker.url=amqp://localhost:5672</li>
+</ul>
+</li>
+<li>To use as a 'Production' user<ul>
+<li>Navigate to RabbitMQ bin folder.</li>
+<li>Make sure the RabbitMQ server is running. For production use <pre><code>rabbitmq-server -detached</code></pre> to start.</li>
+<li>Create a virtual-host and user with a password. Follow documentation in <a href="http://blog.dtzq.com/2012/06/rabbitmq-users-and-virtual-hosts.html" target="_blank">RabbitMQ Users &amp; VirtualHost</a></li>
+<li>To create a user; <pre><code>rabbitmqctl add_user Username Password</code></pre></li>
+<li>To create a vitrual-host <pre><code>rabbitmqctl add_vhost vhostauthvhost</code></pre></li>
+<li>Provide permission to created 'Username'  to the created vhost <pre><code>rabbitmqctl set_permissions -p messaging airavata ".<em>" ".</em>" ".*”</code></pre></li>
+<li>Uncomment rabbitmq.broker.url=amqp://Username:Password@localhost:5672/Vhost. Add the created username, password and Vhost in the URL.</li>
+<li>If you need to stop RabbitMQ use <pre><code>rabbitmqctl stop</code></pre>.
+  <br> If the RabbitMQ server stopped then the above user creation, vhost cretion and permission granting commmands need to run again after restarting the servers.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Download and install Zookeeper. Use <a href=" http://www.us.apache.org/dist/zookeeper/zookeeper-3.4.8/" target="_blank">Download Zookeeper</a> <br> You can downlaod and install Zookeeper in the above created local folder; LocalAiravata</li>
+<li>Navigate to the Zookeeper bin directory  and start zookeeper <pre><code>zkServer.sh start</code></pre></li>
+<li>In bin start the Airavata server and monitor log messages; This may require JAVA_HOME to be defined. Some configurations such as in  bin/zoo.cfg and bin/airavata-server.properties  may have to be adjusted if some ports are already in use. Ports need to be open as well.
+<pre><code>sh airavata-server.sh start</code></pre> (This will run the airavata server in the background in demon mode)<br></li>
+<li>If you are in the target folder use given to start Airavata server;<br>
+<pre><code>sh apache-airavata-server-0.16-SNAPSHOT/bin/airavata-server.sh start</code></pre></li>
+<li>To monitor the server starting up, view the airavata server log;<br>
+<pre><code>tail -f airavata-server.out</code></pre> </li>
+<li>For subsequent Airavata copies; in the local Airavata folder where source code is cloned do a git clone https://github.com/apache/airavata.git for the latest trunk.</li>
+</ol></div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            
+            <center>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</center>
+        </footer>
+
+        <script src="../js/jquery-1.10.2.min.js"></script>
+        <script src="../js/bootstrap-3.0.3.min.js"></script>
+        <script src="../js/highlight.pack.js"></script>
+        <script src="../js/base.js"></script>
+    </body>
+</html>
