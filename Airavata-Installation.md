@@ -5,8 +5,8 @@
 <br></br>
 <br><b>Click your option;</b></br>
 
-[<button type="button" style="color:darkred;text-align:center;font-weight:bold;background-color:Steal;width:200px;border-radius:4px">Airavata Prerequisites</button>](#Airavata) &nbsp; &nbsp; &nbsp;
-[<button type="button" style="color:darkred;text-align:center;font-weight:bold;background-color:Steal;width:200px;border-radius:4px">Airavata on CentOS 7</button>](#AiravataCent) <br></br>
+[<button type="button" style="color:#3232ff;text-align:center;font-weight:bold;background-color:darkgray;width:200px;border-radius:4px">Airavata Prerequisites</button>](#Airavata) &nbsp; &nbsp; &nbsp;
+[<button type="button" style="color:#3232ff;text-align:center;font-weight:bold;background-color:darkgray;width:200px;border-radius:4px">Airavata on CentOS 7</button>](#AiravataCent) <br></br>
 
 
 ### <h3 id="Airavata">General Airavata Prerequisites</h3>
@@ -80,7 +80,7 @@ For more information visit <a href="https://cwiki.apache.org/confluence/display/
 9. Navigate to bin folder which contains file airavata-server.properties and open it;
 <pre><code>vi apache-airavata-server-0.16-SNAPSHOT/bin</code></pre>
 10. Update relevant necessary properties to run Airavata locally.<br>
-Change as required;<a href="../Installations/airavata-properties.md">test</a>
+Change as required. Refer for more details;<a href="../Installations/airavata-properties.md"> Airavata Property File</a>.
 	- API Server Registry Configuration
 		- Comment out the derby DB properties
 		- Change MySQL configurations

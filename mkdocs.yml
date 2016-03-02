@@ -16,7 +16,7 @@ pages:
 - FAQ: FAQ.md
 - Contact Us: Contact-Us.md
 
-theme: simplex
+theme: readthedocs
 
 extra_css:
   - css/extra.css

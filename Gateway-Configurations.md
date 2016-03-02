@@ -50,9 +50,10 @@ NOTE: Currently enabling and disabling storage resources is not an active featur
 ###<h3 id="Preference">GatewayPreferences for Resources</h3>
 1. Navigate Admin Dashboard --> Gateway Preferences
 2. Both compute resource and storage resource specific preferences are defined here.
-3. To add compute resource related preferences select the resource from the drop-down list and add/select preferred options and set preferences.
+3. To add compute resource related preferences click "Add a Compute Resource Preferences" and select the resource from the drop-down list.
+4. Add/select preferred options and click "Set preferences". Repeat this for all the resources used within the gateway.
 <br>Repeat this for every active enabled compute resource in the gateway.
-4. For each gateway admin need to;
+4. For each compute resource, gateway admin need to;
   	- whether the preferences can be overridden by Airavata - Yes/No
   	- Resource login name
   	- Preferred job submission and data movement protocols
@@ -60,21 +61,47 @@ NOTE: Currently enabling and disabling storage resources is not an active featur
   	- Scratch location
   	- Project allocation number
   	- Resource specific credential store token
+5. For adding storage resource preference click "Add a Storage Resource Preferences", and rest is similar to adding a compute resource preference.
+6. For a gateway currently when a storage resource is selected, that resource ID need to be added in to the pga_config.php file in config folder of the hosted gateway.
+7. For storage resource preference, gateway admin need to add;
+	- Login username
+	- File System Root Location
+	- Resource Specific Credential Store Token
+8. Apart from adding preference the same interface is used to assign a 'Base Credential Store Token". If this is added this is the token used across the gateway for communication with all the compute resources and storage resource.
 <br>
 <br>
 ### <h3 id="AppCatalog">Application Catalog</h3>
-1. Gateway admin add applications in to the gateway. Adding an application is a 3 step process
-2. admin need to add application module, interface and deployment information in order to launch jobs on compute resources
+1. Gateway admin add applications in to the gateway. Adding an application is a 3 step process.
+2. Admin need to add application module, interface and deployment information in order to launch specific application jobs on compute resources.
 3. What each step means?
-	- Application module - Admin Dashboard --> App Catalog --> Module
-	This is the simple introduction of the application.
-	- Application interface - Admin Dashboard --> App Catalog --> Interface
-	Application interface defines the required inputs, output produced and their characteristics.
-	- Application deployment - Admin Dashboard --> App Catalog --> Deployment
-	Application deployment describes application deployment details in specific resource.
+	- <b class="blue">Application Module</b>
+		- Navigation: Admin Dashboard --> App Catalog --> Module
+		- This is the simple introduction of the application; Name, Version and Description.
+		- Click on 'Create a New Application Module' and provide information.
+		- Click Create.
+		- All available modules are also listed; admin has the option of searching for a particular module by providing the name in the search.
+		- Gateway admin can edit, delete existing modules.
+		- Deleting a module will be restricted if it has application interfaces and deployments linked.
+	- <b class="blue">Application interface</b>
+		- Navigation: Admin Dashboard --> App Catalog --> Interface
+		- Application interface defines the required inputs, output produced and their characteristics.
+		- Click on 'Create a New Application Interface' and provide information.
+        - Click Create.
+        - All available interfaces are also listed; admin has the option of searching for a particular interface by providing the name in the search.
+        - Gateway admin can edit, delete existing interfaces.
+        - Gateway admin cal also clone an existing interface in order to create a new similar interface with slight changes.
+	- <b class="blue">Application deployment</b>
+		- Navigation: Admin Dashboard --> App Catalog --> Deployment
+			- Application deployment describes application deployment details on a specific resource.
+			- For an application for each resource there is a separate deployment.
 <br>
 <br>
 ### <h3 id="Credentials">Credential Store</h3>
+1. Navigation: Admin Dashboard --> Credential Store
+2. This interface is used to generate SSH key + token pairs.
+3. These generated keys can be added in to the authorized key files in each resource for SSH key based communication.
+4. When generated key can be either assigned at gateway level; one key + token pair  for all the resources OR have separate keys for each resource.
+5. SSH keys are used for communication with compute resources and storage resources.
 
 ### <h3 id="Preference">WSO2 IS Configuration</h3>
 1. Setting up WSO2 IS for the new gateway.
