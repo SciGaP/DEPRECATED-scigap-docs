@@ -20,7 +20,7 @@
 	- <a href="http://maven.apache.org/download.cgi" target="_blank">Download Maven</a> (java based code building tool).
 4. MySQL Database
 
-### <a name="#AiravataCent"></a>Airavata Installation on CentOS 7
+### <h3 id="AiravataCent">Airavata Installation on CentOS 7</h3>
 <b>NOTE: Airavata installation on other operating systems are similar with minor changes.</b></br>
 #### Prerequisites
 1. CentOS 7 Default open JDK 1.8.0. (minimum) is sufficient.
@@ -146,8 +146,8 @@ Change as required. Refer for more details;<a href="../Installations/airavata-pr
 			- To create a vitrual-host <pre><code>rabbitmqctl add_vhost vhostauthvhost</code></pre>
 			- Provide permission to created 'Username'  to the created vhost <pre><code>rabbitmqctl set_permissions -p messaging airavata ".*" ".*" ".*”</code></pre>
 			- Uncomment rabbitmq.broker.url=amqp://Username:Password@localhost:5672/Vhost. Add the created username, password and Vhost in the URL.
-			- If you need to stop RabbitMQ use <pre><code>rabbitmqctl stop</code></pre>.
-			  <br> If the RabbitMQ server stopped then the above user creation, vhost cretion and permission granting commmands need to run again after restarting the servers.
+			- If you need to stop RabbitMQ use <pre><code>rabbitmqctl stop</code></pre>
+			  If the RabbitMQ server stopped then the above user creation, vhost cretion and permission granting commmands need to run again after restarting the servers.
 11. Download and install Zookeeper. Use <a href=" http://www.us.apache.org/dist/zookeeper/zookeeper-3.4.8/" target="_blank">Download Zookeeper</a> <br> You can downlaod and install Zookeeper in the above created local folder; LocalAiravata
 12. Navigate to the Zookeeper bin directory  and start zookeeper <pre><code>zkServer.sh start</code></pre>
 13. In bin start the Airavata server and monitor log messages; This may require JAVA_HOME to be defined. Some configurations such as in  bin/zoo.cfg and bin/airavata-server.properties  may have to be adjusted if some ports are already in use. Ports need to be open as well.

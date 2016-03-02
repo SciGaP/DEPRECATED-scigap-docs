@@ -1,6 +1,6 @@
 ## Troubleshooting FAQ
-<br><b class="darkred"> Q1.</b> I have setup my own gateway and Airavata. When I log into the gateway I cannot create Compute resources. What should I do?</br>
-<b class="lred">Answer: </b> In your pga_config.php (in folder .../testdrive/app/config) under heading 'Portal Related Configurations' set 'super-admin-portal' => false, to true.</br>
+<br><b class="blue"> Q1.</b> I have setup my own gateway and Airavata. When I log into the gateway I cannot create Compute resources. What should I do?</br>
+<b class="blue">Answer: </b> In your pga_config.php (in folder .../testdrive/app/config) under heading 'Portal Related Configurations' set 'super-admin-portal' => false, to true.</br>
 <br><b class="darkred">Q2.</b> I don't get notifications when users create new accounts in my gateway. Why?</br>
 <b class="lred">Answer: </b> That's because you have not defined an email address in <br>'admin-emails' => ['xxx@xxx.com','yyy@yyy.com']. Here you can add one or many.</br>
 <br><br><b class="darkred"> Q3.</b>  I am not receiving email notifications from compute resoures for job status changes. What should I do?</br>

@@ -9,6 +9,7 @@ pages:
   - Airavata Property File: 'airavata-properties.md'
 - Configuration:
   - PGA: 'Gateway-Configurations.md'
+  - WSO2 IS: 'WSO2-IS-Configuration.md'
 - Documentation:
   - User Profiles: User-Profiles.md
   - Applications: Application-CookBook.md
